@@ -1,0 +1,23 @@
+{
+  "name": "films-search",
+  "version": "1.0.0",
+  "description": "Small application which goal is to search films",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtChetya/Films-Search.git"
+  },
+  "author": "Artem Chetverikov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArtChetya/Films-Search/issues"
+  },
+  "homepage": "https://github.com/ArtChetya/Films-Search#readme",
+  "dependencies": {
+    "express": "4.16.4"
+  }
+}
