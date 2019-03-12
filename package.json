@@ -13,7 +13,8 @@
     "prettier": "prettier --config .prettierrc --write ./src/**/*.js",
     "lint": "eslint ./src/**/*.js",
     "lint:fix": "eslint ./src/**/*.js --fix",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepush": "concurrently \"npm run lint\" \"npm test\""
   },
   "repository": {
     "type": "git",
@@ -84,8 +85,7 @@
         "npm run precommit"
       ],
       "pre-push": [
-        "npm run lint",
-        "npm test"
+        "npm run prepush"
       ]
     }
   },
