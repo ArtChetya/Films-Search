@@ -11,7 +11,7 @@
     "test": "jest --config=jest.config.js",
     "test:coverage": "jest --config=jest.config.js --coverage",
     "prettier": "prettier --config .prettierrc --write ./src/**/*.js",
-    "lint": "echo \\\"Error: no lint specified\\\" && exit 1",
+    "lint": "echo \\\"Error: no lint specified\\\" && exit 0",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -60,7 +60,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "lint-staged": {
-    "./client/**/*.{js,json}": [
+    "./src/**/*.{js,json}": [
       "prettier --config .prettierrc --write",
       "git add"
     ]
