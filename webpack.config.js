@@ -50,7 +50,7 @@ module.exports = (env, argv) => {
                     loader: 'url-loader'
                 },
                 {
-                    test: /\.(ttf|eot|svg)$/,
+                    test: /\.(ttf|woff|woff2|eot|svg)$/,
                     loader: 'file-loader'
                 },
             ]
