@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import pink from '@material-ui/core/colors/pink';
 import Grid from '@material-ui/core/Grid';
 import { ColorButton } from '../ColorButton';
 import { AppBar } from '../AppBar';
 import { Toolbar } from '../Toolbar';
 import { ColorText } from '../ColorText';
+
+const GridMarginTop = styled(Grid)`
+    && {
+        margin-top: 15px;
+    }
+`;
 
 export function Header({ hasSearch, content }) {
     return (
@@ -27,9 +34,9 @@ export function Header({ hasSearch, content }) {
                     )}
 
                     {content && (
-                        <Grid item xs={12}>
+                        <GridMarginTop item xs={12}>
                             {content}
-                        </Grid>
+                        </GridMarginTop>
                     )}
                 </Grid>
             </Toolbar>
