@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
-import styled from 'styled-components';
-import Button from '@material-ui/core/Button';
 import pink from '@material-ui/core/colors/pink';
-import { AppBar, PinkText, Toolbar } from '../styled';
-
-const WhiteButton = styled(Button)`
-    && {
-        color: ${pink[400]};
-        background-color: #fff;
-    }
-`;
+import Grid from '@material-ui/core/Grid';
+import { ColorButton } from '../ColorButton';
+import { AppBar } from '../AppBar';
+import { Toolbar } from '../Toolbar';
+import { ColorText } from '../ColorText';
 
 export function Header({ hasSearch, content }) {
     return (
@@ -19,14 +13,16 @@ export function Header({ hasSearch, content }) {
             <Toolbar>
                 <Grid container justify="space-between" alignItems="center">
                     <Grid item>
-                        <PinkText variant="h6">netflixroulette</PinkText>
+                        <ColorText fontcolor={pink[400]} variant="h6">
+                            netflixroulette
+                        </ColorText>
                     </Grid>
 
                     {hasSearch && (
                         <Grid item>
-                            <WhiteButton size="medium" variant="contained">
+                            <ColorButton size="medium" variant="contained">
                                 Search
-                            </WhiteButton>
+                            </ColorButton>
                         </Grid>
                     )}
 

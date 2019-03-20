@@ -1,11 +1,16 @@
 import React from 'react';
-import { AppBar, PinkText, Toolbar } from '../styled';
+import pink from '@material-ui/core/colors/pink';
+import { AppBar } from '../AppBar';
+import { Toolbar } from '../Toolbar';
+import { ColorText } from '../ColorText';
 
 export function Footer() {
     return (
         <AppBar position="static">
             <Toolbar>
-                <PinkText variant="body2">netflixroulette</PinkText>
+                <ColorText fontcolor={pink[400]} variant="body2">
+                    netflixroulette
+                </ColorText>
             </Toolbar>
         </AppBar>
     );
