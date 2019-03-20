@@ -1,31 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import 'typeface-roboto';
+import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
-import './App.css';
-import Button from '@material-ui/core/Button';
+import { HomeContainer } from './pages/Home/HomeContainer';
 
-const StyledButton = styled(Button)`
-    background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
-    border-radius: 3px;
-    border: 0;
-    color: white;
-    height: 48px;
-    padding: 0 30px;
-    box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
+const PageGrid = styled(Grid)`
+    && {
+        height: 100vh;
+        width: 100%;
+    }
 `;
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <h1> Hello, World! </h1>
-                <StyledButton variant="contained" color="primary">
-                    Hello World
-                </StyledButton>
-            </div>
-        );
-    }
+function App() {
+    return (
+        <PageGrid container direction="column" wrap="nowrap">
+            <HomeContainer />
+        </PageGrid>
+    );
 }
 
 export default hot(App);
