@@ -5,7 +5,6 @@ import pink from '@material-ui/core/colors/pink';
 import Grid from '@material-ui/core/Grid';
 import { ColorButton } from '../ColorButton';
 import { AppBar } from '../AppBar';
-import { Toolbar } from '../Toolbar';
 import { ColorText } from '../ColorText';
 
 const GridMarginTop = styled(Grid)`
@@ -14,35 +13,33 @@ const GridMarginTop = styled(Grid)`
     }
 `;
 
-export function Header({ hasSearch, content }) {
+export const Header = ({ hasSearch, content }) => {
     return (
-        <AppBar position="static">
-            <Toolbar>
-                <Grid container justify="space-between" alignItems="center">
-                    <Grid item>
-                        <ColorText fontcolor={pink[400]} variant="h6">
-                            netflixroulette
-                        </ColorText>
-                    </Grid>
-
-                    {hasSearch && (
-                        <Grid item>
-                            <ColorButton size="medium" variant="contained">
-                                Search
-                            </ColorButton>
-                        </Grid>
-                    )}
-
-                    {content && (
-                        <GridMarginTop item xs={12}>
-                            {content}
-                        </GridMarginTop>
-                    )}
+        <AppBar opacity={0.9}>
+            <Grid container justify="space-between" alignItems="center">
+                <Grid item>
+                    <ColorText fontcolor={pink[400]} variant="h6">
+                        netflixroulette
+                    </ColorText>
                 </Grid>
-            </Toolbar>
+
+                {hasSearch && (
+                    <Grid item>
+                        <ColorButton size="medium" variant="contained">
+                            Search
+                        </ColorButton>
+                    </Grid>
+                )}
+
+                {content && (
+                    <GridMarginTop item xs={12}>
+                        {content}
+                    </GridMarginTop>
+                )}
+            </Grid>
         </AppBar>
     );
-}
+};
 
 Header.propTypes = {
     hasSearch: PropTypes.bool,

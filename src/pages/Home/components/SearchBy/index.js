@@ -2,36 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
-import Grid from '@material-ui/core/Grid';
-import { ColorButton } from '../../../../components/ColorButton';
-import { UppercasedText } from '../../../../components/UppercasedText';
+import { FilterBy } from '../FilterBy';
 
-export function SearchBy({ searchByLabels, selectedLabel, setSelectedLabel }) {
-    return (
-        <Grid container alignItems="center" spacing={8}>
-            <Grid item>
-                <UppercasedText variant="body1">Search By</UppercasedText>
-            </Grid>
+export const SearchBy = props => {
+    const searchByConfig = {
+        title: 'Search By',
+        titleVariant: 'body1',
+        activeColor: '#fff',
+        defaultColor: '#fff',
+        activeBgColor: pink[400],
+        defaultBgColor: grey[700],
+        titleTextTransform: 'uppercase',
+        buttonTextTransform: 'uppercase',
+        buttonVariant: 'outlined'
+    };
 
-            {searchByLabels.map(label => (
-                <Grid key={label} item>
-                    <ColorButton
-                        onClick={() => setSelectedLabel(label)}
-                        fontcolor="#fff"
-                        backgroundcolor={
-                            label === selectedLabel ? pink[400] : grey[700]
-                        }
-                    >
-                        {label}
-                    </ColorButton>
-                </Grid>
-            ))}
-        </Grid>
-    );
-}
+    return <FilterBy {...props} config={searchByConfig} />;
+};
 
 SearchBy.propTypes = {
-    searchByLabels: PropTypes.array.isRequired,
-    selectedLabel: PropTypes.string.isRequired,
-    setSelectedLabel: PropTypes.func.isRequired
+    options: PropTypes.array.isRequired,
+    selectedOptionId: PropTypes.string.isRequired,
+    onOptionChange: PropTypes.func.isRequired
 };

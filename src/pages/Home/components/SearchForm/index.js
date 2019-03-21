@@ -5,7 +5,7 @@ import pink from '@material-ui/core/colors/pink';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { ColorButton } from '../../../../components/ColorButton';
-import { UppercasedText } from '../../../../components/UppercasedText';
+import { TransformText } from '../../../../components/TransformText';
 import { SearchBy } from '../SearchBy';
 
 const SearchField = styled(TextField)`
@@ -22,21 +22,21 @@ const SearchField = styled(TextField)`
     }
 `;
 
-export function SearchForm({
+export const SearchForm = ({
     searchField,
     setSearchField,
-    onSearch,
-    searchByLabels,
-    selectedLabel,
-    setSelectedLabel
-}) {
+    searchByOptions,
+    searchById,
+    setSearchById,
+    onSearch
+}) => {
     return (
         <form onSubmit={onSearch}>
             <Grid container justify="space-between" alignItems="center">
                 <Grid item xs={12}>
-                    <UppercasedText variant="h6">
+                    <TransformText transform="uppercase" variant="h6">
                         find your movie
-                    </UppercasedText>
+                    </TransformText>
                 </Grid>
 
                 <Grid item xs={12}>
@@ -51,9 +51,9 @@ export function SearchForm({
 
                 <Grid item xs={5}>
                     <SearchBy
-                        searchByLabels={searchByLabels}
-                        selectedLabel={selectedLabel}
-                        setSelectedLabel={setSelectedLabel}
+                        options={searchByOptions}
+                        selectedOptionId={searchById}
+                        onOptionChange={setSearchById}
                     />
                 </Grid>
 
@@ -70,13 +70,13 @@ export function SearchForm({
             </Grid>
         </form>
     );
-}
+};
 
 SearchForm.propTypes = {
     searchField: PropTypes.string.isRequired,
     setSearchField: PropTypes.func.isRequired,
-    onSearch: PropTypes.func.isRequired,
-    searchByLabels: PropTypes.array.isRequired,
-    selectedLabel: PropTypes.string.isRequired,
-    setSelectedLabel: PropTypes.func.isRequired
+    searchByOptions: PropTypes.array.isRequired,
+    searchById: PropTypes.string.isRequired,
+    setSearchById: PropTypes.func.isRequired,
+    onSearch: PropTypes.func.isRequired
 };
