@@ -10,7 +10,8 @@
   "plugins": [
     "react",
     "jsx-a11y",
-    "prettier"
+    "prettier",
+    "react-hooks"
   ],
   "settings": {
     "import/resolver": {
@@ -62,6 +63,8 @@
     "no-underscore-dangle": [
       2,
       { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
