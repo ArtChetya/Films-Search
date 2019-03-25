@@ -24,6 +24,7 @@ StyledMaterialAppBar.propTypes = {
 const StyledToolbar = styled(MaterialToolbar)`
     && {
         min-height: ${props => props.minheight || '36px'};
+        padding: 0;
     }
 `;
 

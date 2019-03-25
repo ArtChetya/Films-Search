@@ -9,6 +9,7 @@ import { SplitPane } from '../../components/SplitPane';
 import { PageGrid } from '../../components/PageGrid';
 import { ColorText } from '../../components/ColorText';
 import { SortBy } from './components/SortBy';
+import { FilmsSectionContainer } from '../../containers/FilmsSectionContainer';
 
 export const Home = ({
     searchField,
@@ -19,7 +20,10 @@ export const Home = ({
     sortByOptions,
     sortById,
     setSortById,
-    onSearch
+    filmsTotal,
+    setFilmsTotal,
+    onSearch,
+    updatedSearchForm
 }) => {
     return (
         <PageGrid container direction="column" wrap="nowrap">
@@ -39,7 +43,7 @@ export const Home = ({
             <SplitPane
                 left={
                     <ColorText variant="subtitle2" fontcolor={grey[900]}>
-                        7 movies found
+                        {filmsTotal} movies found
                     </ColorText>
                 }
                 right={
@@ -51,7 +55,15 @@ export const Home = ({
                 }
             />
 
-            <PageContentWrapper />
+            <PageContentWrapper>
+                <FilmsSectionContainer
+                    setFilmsTotal={setFilmsTotal}
+                    search={searchField}
+                    searchBy={searchById}
+                    sortBy={sortById}
+                    updated={updatedSearchForm}
+                />
+            </PageContentWrapper>
 
             <Footer />
         </PageGrid>
@@ -67,5 +79,8 @@ Home.propTypes = {
     sortByOptions: PropTypes.array.isRequired,
     sortById: PropTypes.string.isRequired,
     setSortById: PropTypes.func.isRequired,
-    onSearch: PropTypes.func.isRequired
+    filmsTotal: PropTypes.number.isRequired,
+    setFilmsTotal: PropTypes.func.isRequired,
+    onSearch: PropTypes.func.isRequired,
+    updatedSearchForm: PropTypes.bool.isRequired
 };

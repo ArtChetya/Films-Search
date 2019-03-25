@@ -17,12 +17,15 @@ export const HomeContainer = () => {
     ];
     const [sortByOptions] = useState(sortByOptionsList);
     const [sortById, setSortById] = useState(sortByOptionsList[0].id);
+    const [filmsTotal, setFilmsTotal] = useState(0);
+    const [updatedSearchForm, setUpdatedSearchForm] = useState(false);
 
     const onSearch = event => {
         event.preventDefault();
         console.log(searchField);
         console.log(searchById);
         console.log(sortById);
+        setUpdatedSearchForm(!updatedSearchForm);
     };
 
     return (
@@ -35,7 +38,10 @@ export const HomeContainer = () => {
             sortByOptions={sortByOptions}
             sortById={sortById}
             setSortById={setSortById}
+            filmsTotal={filmsTotal}
+            setFilmsTotal={setFilmsTotal}
             onSearch={onSearch}
+            updatedSearchForm={updatedSearchForm}
         />
     );
 };
