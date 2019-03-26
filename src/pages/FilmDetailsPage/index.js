@@ -10,13 +10,24 @@ import { FilmsSectionContainer } from '../../containers/FilmsSectionContainer';
 import { Footer } from '../../components/Footer';
 import { FilmDetailsContainer } from './containers/FilmDetailsContainer';
 
-export const FilmDetailsPage = ({ filmGenres, setFilmsGenres }) => {
+export const FilmDetailsPage = ({
+    filmGenres,
+    setFilmsGenres,
+    filmId,
+    updated,
+    setUpdated
+}) => {
     return (
         <PageGrid container direction="column" wrap="nowrap">
             <Header
                 hasSearch
                 content={
-                    <FilmDetailsContainer setFilmsGenres={setFilmsGenres} />
+                    <FilmDetailsContainer
+                        filmId={filmId}
+                        setFilmsGenres={setFilmsGenres}
+                        updated={updated}
+                        setUpdated={setUpdated}
+                    />
                 }
             />
 
@@ -29,7 +40,11 @@ export const FilmDetailsPage = ({ filmGenres, setFilmsGenres }) => {
             />
 
             <PageContentWrapper>
-                <FilmsSectionContainer searchField="Comedy" searchBy="genres" />
+                <FilmsSectionContainer
+                    searchField={filmGenres.join(' ')}
+                    searchBy="genres"
+                    updated={updated}
+                />
             </PageContentWrapper>
 
             <Footer />
@@ -39,5 +54,8 @@ export const FilmDetailsPage = ({ filmGenres, setFilmsGenres }) => {
 
 FilmDetailsPage.propTypes = {
     filmGenres: PropTypes.array.isRequired,
-    setFilmsGenres: PropTypes.func.isRequired
+    setFilmsGenres: PropTypes.func.isRequired,
+    filmId: PropTypes.string.isRequired,
+    updated: PropTypes.bool.isRequired,
+    setUpdated: PropTypes.func.isRequired
 };

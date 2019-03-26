@@ -22,9 +22,6 @@ export const HomeContainer = () => {
 
     const onSearch = event => {
         event.preventDefault();
-        console.log(searchField);
-        console.log(searchById);
-        console.log(sortById);
         setUpdatedSearchForm(!updatedSearchForm);
     };
 

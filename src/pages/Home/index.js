@@ -57,7 +57,7 @@ export const Home = ({
 
             <PageContentWrapper>
                 <FilmsSectionContainer
-                    passFilmsData={films => setFilmsTotal(films.length)}
+                    setFilmsTotal={setFilmsTotal}
                     searchField={searchField}
                     searchBy={searchById}
                     sortBy={sortById}

@@ -1,13 +1,15 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import 'typeface-roboto';
-// import { HomeContainer } from './pages/Home/HomeContainer';
+import { Route } from 'react-router-dom';
+import { HomeContainer } from './pages/Home/HomeContainer';
 import { FilmDetailsPageContainer } from './pages/FilmDetailsPage/FilmDetailsPageContainer';
 
 function App() {
     return (
         <>
-            <FilmDetailsPageContainer />
+            <Route exact path="/" component={HomeContainer} />
+            <Route path="/movie/:id" component={FilmDetailsPageContainer} />
         </>
     );
 }

@@ -11,6 +11,7 @@ export const FilmsSectionContainer = ({
     updated
 }) => {
     const [films, setFilms] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         let ignore = false;
@@ -21,6 +22,8 @@ export const FilmsSectionContainer = ({
             const searchVal = isByTitleSearch
                 ? searchField
                 : searchField.split(' ');
+
+            setIsLoading(true);
 
             const rawResponse = await httpService({
                 params: {
@@ -39,6 +42,7 @@ export const FilmsSectionContainer = ({
                 setFilms(data);
                 setFilmsTotal(data.length);
             }
+            setIsLoading(false);
         }
 
         if (searchField.length) {
@@ -53,7 +57,9 @@ export const FilmsSectionContainer = ({
         };
     }, [sortBy, updated]);
 
-    return <FilmsList films={films} />;
+    return (
+        <>{isLoading ? <div>Loading...</div> : <FilmsList films={films} />}</>
+    );
 };
 
 FilmsSectionContainer.propTypes = {

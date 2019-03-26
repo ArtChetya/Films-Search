@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { ColorButton } from '../ColorButton';
 import { AppBar } from '../AppBar';
 import { ColorText } from '../ColorText';
+import { Link } from '../Link';
 
 const GridMarginTop = styled(Grid)`
     && {
@@ -25,9 +26,11 @@ export const Header = ({ hasSearch, content }) => {
 
                 {hasSearch && (
                     <Grid item>
-                        <ColorButton size="medium" variant="contained">
-                            Search
-                        </ColorButton>
+                        <Link to="/">
+                            <ColorButton size="medium" variant="contained">
+                                Search
+                            </ColorButton>
+                        </Link>
                     </Grid>
                 )}
 

@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { httpService } from '../../../services/httpService';
-import { FilmDetails } from '../components/FilmDetails';
+import { httpService } from '../../../../services/httpService';
+import { FilmDetails } from '../../components/FilmDetails';
 
-export const FilmDetailsContainer = ({ setFilmsGenres }) => {
+export const FilmDetailsContainer = ({
+    filmId,
+    setFilmsGenres,
+    updated,
+    setUpdated
+}) => {
     const [filmDetails, setFilmDetails] = useState({ release_date: '' });
 
     useEffect(() => {
@@ -12,13 +17,13 @@ export const FilmDetailsContainer = ({ setFilmsGenres }) => {
         async function fetchFilm() {
             const response = await httpService({
                 method: 'GET',
-                url: 'movies/68718'
+                url: `movies/${filmId}`
             });
-            console.log(response);
 
             if (!ignore) {
                 setFilmDetails(response.data);
                 setFilmsGenres(response.data.genres);
+                setUpdated(!updated);
             }
         }
 
@@ -27,11 +32,14 @@ export const FilmDetailsContainer = ({ setFilmsGenres }) => {
         return () => {
             ignore = true;
         };
-    }, []);
+    }, [filmId]);
 
     return <FilmDetails filmDetails={filmDetails} />;
 };
 
 FilmDetailsContainer.propTypes = {
-    setFilmsGenres: PropTypes.func.isRequired
+    filmId: PropTypes.string.isRequired,
+    setFilmsGenres: PropTypes.func.isRequired,
+    updated: PropTypes.bool.isRequired,
+    setUpdated: PropTypes.func.isRequired
 };

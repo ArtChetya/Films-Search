@@ -8,6 +8,7 @@ import grey from '@material-ui/core/colors/grey';
 import Chip from '@material-ui/core/Chip';
 import { CardMedia } from '@material-ui/core';
 import { TransformText } from '../TransformText';
+import { Link } from '../Link';
 
 const StyledCard = styled(Card)`
     && {
@@ -66,37 +67,39 @@ export const Film = ({ film }) => {
     const year = film.release_date.split('-')[0];
 
     return (
-        <StyledCard raised>
-            <StyledCardMedia image={film.poster_path} />
+        <Link to={`/movie/${film.id}`}>
+            <StyledCard raised>
+                <StyledCardMedia image={film.poster_path} />
 
-            <CardContent>
-                <Grid container spacing={8} alignItems="center">
-                    <Grid item xs={9} lg={7}>
-                        <TransformText
-                            transform="uppercase"
-                            variant="subtitle2"
-                            fontcolor={grey[700]}
-                        >
-                            {film.title}
-                        </TransformText>
-                    </Grid>
+                <CardContent>
+                    <Grid container spacing={8} alignItems="center">
+                        <Grid item xs={9} lg={7}>
+                            <TransformText
+                                transform="uppercase"
+                                variant="subtitle2"
+                                fontcolor={grey[700]}
+                            >
+                                {film.title}
+                            </TransformText>
+                        </Grid>
 
-                    <Grid item xs={3} lg={5}>
-                        <Chip label={year} variant="outlined" />
-                    </Grid>
+                        <Grid item xs={3} lg={5}>
+                            <Chip label={year} variant="outlined" />
+                        </Grid>
 
-                    <Grid item xs={12}>
-                        <TransformText
-                            transform="capitalize"
-                            variant="caption"
-                            fontcolor={grey[700]}
-                        >
-                            {film.genres.join(' & ')}
-                        </TransformText>
+                        <Grid item xs={12}>
+                            <TransformText
+                                transform="capitalize"
+                                variant="caption"
+                                fontcolor={grey[700]}
+                            >
+                                {film.genres.join(' & ')}
+                            </TransformText>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </CardContent>
-        </StyledCard>
+                </CardContent>
+            </StyledCard>
+        </Link>
     );
 };
 
