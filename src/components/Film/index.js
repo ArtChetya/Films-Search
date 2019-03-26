@@ -9,6 +9,12 @@ import Chip from '@material-ui/core/Chip';
 import { CardMedia } from '@material-ui/core';
 import { TransformText } from '../TransformText';
 
+const StyledCard = styled(Card)`
+    && {
+        height: 610px;
+    }
+`;
+
 const StyledCardMedia = styled(CardMedia)`
     && {
         height: 500px;
@@ -20,7 +26,7 @@ export const Film = ({ film }) => {
     const year = film.release_date.split('-')[0];
 
     return (
-        <Card raised>
+        <StyledCard raised>
             <StyledCardMedia image={film.poster_path} />
 
             <CardContent>
@@ -50,7 +56,7 @@ export const Film = ({ film }) => {
                     </Grid>
                 </Grid>
             </CardContent>
-        </Card>
+        </StyledCard>
     );
 };
 

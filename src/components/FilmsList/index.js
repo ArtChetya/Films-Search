@@ -14,12 +14,7 @@ const StyledList = styled(Grid)`
 
 export const FilmsList = ({ films }) => {
     return (
-        <StyledList
-            container
-            component="ul"
-            spacing={16}
-            justify="space-between"
-        >
+        <StyledList container component="ul" spacing={16}>
             {films.map(film => (
                 <Grid
                     xs={6}

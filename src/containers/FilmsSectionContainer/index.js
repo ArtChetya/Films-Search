@@ -44,7 +44,7 @@ export const FilmsSectionContainer = ({
         return () => {
             ignore = true;
         };
-    }, [search, searchBy, setFilmsTotal, sortBy, updated]);
+    }, [updated]);
 
     return <FilmsList films={films} />;
 };
