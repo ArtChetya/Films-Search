@@ -6,14 +6,14 @@ export const HomeContainer = () => {
 
     const searchByOptionsList = [
         { id: 'title', label: 'Title' },
-        { id: 'genre', label: 'Genre' }
+        { id: 'genres', label: 'Genre' }
     ];
     const [searchByOptions] = useState(searchByOptionsList);
     const [searchById, setSearchById] = useState(searchByOptionsList[0].id);
 
     const sortByOptionsList = [
-        { id: 'releaseDate', label: 'release date' },
-        { id: 'rating', label: 'rating' }
+        { id: 'release_date', label: 'release date' },
+        { id: 'vote_average', label: 'rating' }
     ];
     const [sortByOptions] = useState(sortByOptionsList);
     const [sortById, setSortById] = useState(sortByOptionsList[0].id);

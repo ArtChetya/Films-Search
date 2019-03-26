@@ -5,7 +5,7 @@ import { FilmsList } from '../../components/FilmsList';
 
 export const FilmsSectionContainer = ({
     setFilmsTotal,
-    search,
+    searchField,
     searchBy,
     sortBy,
     updated
@@ -16,11 +16,18 @@ export const FilmsSectionContainer = ({
         let ignore = false;
 
         async function fetchFilms() {
+            const isByTitleSearch = searchBy === 'title';
+            const searchPropName = isByTitleSearch ? 'search' : 'filter';
+            const searchVal = isByTitleSearch
+                ? searchField
+                : searchField.split(' ');
+
             const rawResponse = await httpService({
                 params: {
-                    search,
+                    [searchPropName]: searchVal,
                     searchBy,
                     sortBy,
+                    sortOrder: 'desc',
                     limit: 50
                 },
                 method: 'GET',
@@ -28,13 +35,13 @@ export const FilmsSectionContainer = ({
             });
 
             if (!ignore) {
-                const { data, total } = rawResponse.data;
+                const { data } = rawResponse.data;
                 setFilms(data);
-                setFilmsTotal(total);
+                setFilmsTotal(data.length);
             }
         }
 
-        if (search.length) {
+        if (searchField.length) {
             fetchFilms();
         } else {
             setFilms([]);
@@ -44,15 +51,21 @@ export const FilmsSectionContainer = ({
         return () => {
             ignore = true;
         };
-    }, [updated]);
+    }, [sortBy, updated]);
 
     return <FilmsList films={films} />;
 };
 
 FilmsSectionContainer.propTypes = {
-    setFilmsTotal: PropTypes.func.isRequired,
-    search: PropTypes.string.isRequired,
+    setFilmsTotal: PropTypes.func,
+    searchField: PropTypes.string.isRequired,
     searchBy: PropTypes.string.isRequired,
-    sortBy: PropTypes.string.isRequired,
-    updated: PropTypes.bool.isRequired
+    sortBy: PropTypes.string,
+    updated: PropTypes.bool
+};
+
+FilmsSectionContainer.defaultProps = {
+    setFilmsTotal: () => {},
+    sortBy: 'rating',
+    updated: true
 };

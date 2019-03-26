@@ -18,9 +18,9 @@ export const FilmsList = ({ films }) => {
             {films.map(film => (
                 <Grid
                     xs={6}
-                    md={4}
-                    lg={3}
-                    xl={2}
+                    sm={4}
+                    md={3}
+                    lg={2}
                     item
                     component="li"
                     key={film.id}
