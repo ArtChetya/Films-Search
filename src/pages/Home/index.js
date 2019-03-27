@@ -9,29 +9,27 @@ import { SplitPane } from '../../components/SplitPane';
 import { PageGrid } from '../../components/PageGrid';
 import { ColorText } from '../../components/ColorText';
 import { SortBy } from './components/SortBy';
-import { FilmsSectionContainer } from '../../containers/FilmsSectionContainer';
+import { FilmsList } from '../../components/FilmsList';
 
 export const Home = ({
-    searchField,
-    setSearchField,
+    search,
+    setSearch,
     searchByOptions,
     searchById,
     setSearchById,
     sortByOptions,
     sortById,
     setSortById,
-    filmsTotal,
-    setFilmsTotal,
-    onSearch,
-    updatedSearchForm
+    films,
+    onSearch
 }) => {
     return (
         <PageGrid container direction="column" wrap="nowrap">
             <Header
                 content={
                     <SearchForm
-                        searchField={searchField}
-                        setSearchField={setSearchField}
+                        search={search}
+                        setSearch={setSearch}
                         searchByOptions={searchByOptions}
                         searchById={searchById}
                         setSearchById={setSearchById}
@@ -43,7 +41,7 @@ export const Home = ({
             <SplitPane
                 left={
                     <ColorText variant="subtitle2" fontcolor={grey[900]}>
-                        {filmsTotal} movies found
+                        {films.length} movies found
                     </ColorText>
                 }
                 right={
@@ -56,13 +54,7 @@ export const Home = ({
             />
 
             <PageContentWrapper>
-                <FilmsSectionContainer
-                    setFilmsTotal={setFilmsTotal}
-                    searchField={searchField}
-                    searchBy={searchById}
-                    sortBy={sortById}
-                    updated={updatedSearchForm}
-                />
+                <FilmsList films={films} />
             </PageContentWrapper>
 
             <Footer />
@@ -71,16 +63,14 @@ export const Home = ({
 };
 
 Home.propTypes = {
-    searchField: PropTypes.string.isRequired,
-    setSearchField: PropTypes.func.isRequired,
+    search: PropTypes.string.isRequired,
+    setSearch: PropTypes.func.isRequired,
     searchByOptions: PropTypes.array.isRequired,
     searchById: PropTypes.string.isRequired,
     setSearchById: PropTypes.func.isRequired,
     sortByOptions: PropTypes.array.isRequired,
     sortById: PropTypes.string.isRequired,
     setSortById: PropTypes.func.isRequired,
-    filmsTotal: PropTypes.number.isRequired,
-    setFilmsTotal: PropTypes.func.isRequired,
-    onSearch: PropTypes.func.isRequired,
-    updatedSearchForm: PropTypes.bool.isRequired
+    films: PropTypes.array.isRequired,
+    onSearch: PropTypes.func.isRequired
 };

@@ -23,8 +23,8 @@ const SearchField = styled(TextField)`
 `;
 
 export const SearchForm = ({
-    searchField,
-    setSearchField,
+    search,
+    setSearch,
     searchByOptions,
     searchById,
     setSearchById,
@@ -41,8 +41,8 @@ export const SearchForm = ({
 
                 <Grid item xs={12}>
                     <SearchField
-                        value={searchField}
-                        onChange={e => setSearchField(e.target.value)}
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
                         fullWidth
                         margin="dense"
                         variant="filled"
@@ -73,8 +73,8 @@ export const SearchForm = ({
 };
 
 SearchForm.propTypes = {
-    searchField: PropTypes.string.isRequired,
-    setSearchField: PropTypes.func.isRequired,
+    search: PropTypes.string.isRequired,
+    setSearch: PropTypes.func.isRequired,
     searchByOptions: PropTypes.array.isRequired,
     searchById: PropTypes.string.isRequired,
     setSearchById: PropTypes.func.isRequired,
