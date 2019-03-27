@@ -1,5 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Details = styled.details`
+    && {
+        white-space: pre-wrap;
+    }
+`;
 
 export class ErrorBoundary extends React.Component {
     state = { error: null, errorInfo: null };
@@ -19,11 +26,11 @@ export class ErrorBoundary extends React.Component {
             return (
                 <div>
                     <h2>Something went wrong.</h2>
-                    <details style={{ whiteSpace: 'pre-wrap' }}>
+                    <Details>
                         {error && error.toString()}
                         <br />
                         {errorInfo.componentStack}
-                    </details>
+                    </Details>
                 </div>
             );
         }

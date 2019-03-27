@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { httpService } from '../../services/httpService';
 import { FilmsList } from '../../components/FilmsList';
+import { Loader } from '../../components/Loader';
 
 export const FilmsSectionContainer = ({
     setFilmsTotal,
@@ -57,9 +58,7 @@ export const FilmsSectionContainer = ({
         };
     }, [sortBy, updated]);
 
-    return (
-        <>{isLoading ? <div>Loading...</div> : <FilmsList films={films} />}</>
-    );
+    return <>{isLoading ? <Loader /> : <FilmsList films={films} />}</>;
 };
 
 FilmsSectionContainer.propTypes = {
