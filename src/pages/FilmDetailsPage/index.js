@@ -9,26 +9,49 @@ import { PageContentWrapper } from '../../components/PageContentWrapper';
 import { Footer } from '../../components/Footer';
 import { FilmsList } from '../../components/FilmsList';
 import { FilmDetails } from './components/FilmDetails';
+import { Loader } from '../../components/Loader';
 
-export const FilmDetailsPage = ({ filmDetails, filmsByGenres }) => {
+export const FilmDetailsPage = ({
+    filmDetails,
+    filmsByGenres,
+    isFilmDetailsLoading,
+    isFilmsLoading
+}) => {
     return (
         <PageGrid container direction="column" wrap="nowrap">
             <Header
                 hasSearch
-                content={<FilmDetails filmDetails={filmDetails} />}
+                content={
+                    isFilmDetailsLoading ? (
+                        <Loader />
+                    ) : (
+                        <FilmDetails filmDetails={filmDetails} />
+                    )
+                }
             />
 
             <SplitPane
                 left={
-                    <ColorText variant="subtitle2" fontcolor={grey[900]}>
-                        Films by{' '}
-                        <strong>{filmDetails.genres.join(', ')}</strong>
-                    </ColorText>
+                    isFilmDetailsLoading ? (
+                        <Loader size="30px" />
+                    ) : (
+                        <ColorText variant="subtitle2" fontcolor={grey[900]}>
+                            Films by{' '}
+                            <strong>
+                                {filmDetails.genres &&
+                                    filmDetails.genres.join(', ')}
+                            </strong>
+                        </ColorText>
+                    )
                 }
             />
 
             <PageContentWrapper>
-                <FilmsList films={filmsByGenres} />
+                {isFilmsLoading ? (
+                    <Loader />
+                ) : (
+                    <FilmsList films={filmsByGenres} />
+                )}
             </PageContentWrapper>
 
             <Footer />
@@ -38,5 +61,7 @@ export const FilmDetailsPage = ({ filmDetails, filmsByGenres }) => {
 
 FilmDetailsPage.propTypes = {
     filmDetails: PropTypes.object.isRequired,
-    filmsByGenres: PropTypes.array.isRequired
+    filmsByGenres: PropTypes.array.isRequired,
+    isFilmDetailsLoading: PropTypes.bool.isRequired,
+    isFilmsLoading: PropTypes.bool.isRequired
 };

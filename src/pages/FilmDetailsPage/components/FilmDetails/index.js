@@ -30,7 +30,8 @@ const MarginedText = styled(ColorText)`
 `;
 
 export const FilmDetails = ({ filmDetails }) => {
-    const year = filmDetails.release_date.split('-')[0];
+    const year =
+        filmDetails.release_date && filmDetails.release_date.split('-')[0];
 
     return (
         <Grid container wrap="nowrap">

@@ -10,6 +10,7 @@ import { PageGrid } from '../../components/PageGrid';
 import { ColorText } from '../../components/ColorText';
 import { SortBy } from './components/SortBy';
 import { FilmsList } from '../../components/FilmsList';
+import { Loader } from '../../components/Loader';
 
 export const Home = ({
     search,
@@ -21,7 +22,8 @@ export const Home = ({
     sortById,
     setSortById,
     films,
-    onSearch
+    onSearch,
+    isLoading
 }) => {
     return (
         <PageGrid container direction="column" wrap="nowrap">
@@ -54,7 +56,7 @@ export const Home = ({
             />
 
             <PageContentWrapper>
-                <FilmsList films={films} />
+                {isLoading ? <Loader /> : <FilmsList films={films} />}
             </PageContentWrapper>
 
             <Footer />
@@ -72,5 +74,6 @@ Home.propTypes = {
     sortById: PropTypes.string.isRequired,
     setSortById: PropTypes.func.isRequired,
     films: PropTypes.array.isRequired,
-    onSearch: PropTypes.func.isRequired
+    onSearch: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired
 };

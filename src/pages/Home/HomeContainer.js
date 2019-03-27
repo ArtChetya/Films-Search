@@ -29,7 +29,7 @@ export const HomeContainer = () => {
     const [params, setParams] = useState(defaultParams);
 
     const [films, setFilms] = useState([]);
-    // const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const onSearch = event => {
         event.preventDefault();
@@ -61,7 +61,7 @@ export const HomeContainer = () => {
 
     useEffect(() => {
         const fetchFilms = async () => {
-            // setIsLoading(true);
+            setIsLoading(true);
             const response = await httpService({
                 params,
                 method: 'GET',
@@ -70,7 +70,7 @@ export const HomeContainer = () => {
 
             const { data } = response.data;
             setFilms(data);
-            // setIsLoading(false);
+            setIsLoading(false);
         };
 
         fetchFilms();
@@ -88,6 +88,7 @@ export const HomeContainer = () => {
             setSortById={onSortByChange}
             films={films}
             onSearch={onSearch}
+            isLoading={isLoading}
         />
     );
 };

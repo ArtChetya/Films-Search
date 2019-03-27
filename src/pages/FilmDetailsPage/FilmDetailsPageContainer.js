@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { httpService } from '../../services/httpService';
 import { FilmDetailsPage } from '.';
@@ -13,13 +13,12 @@ export const FilmDetailsPageContainer = ({ match }) => {
     };
     const [params] = useState(defaultParams);
 
-    const [filmDetails, setFilmDetails] = useState({
-        genres: [],
-        release_date: ''
-    });
+    const [filmDetails, setFilmDetails] = useState({});
+    const [isFilmDetailsLoading, setIsFilmDetailsLoading] = useState(false);
 
     useEffect(() => {
         const fetchFilm = async () => {
+            setIsFilmDetailsLoading(true);
             const response = await httpService({
                 method: 'GET',
                 url: `movies/${match.params.id}`
@@ -27,34 +26,46 @@ export const FilmDetailsPageContainer = ({ match }) => {
 
             const film = response.data;
             setFilmDetails(film);
+            setIsFilmDetailsLoading(false);
         };
 
         fetchFilm();
     }, [match.params.id]);
 
     const [filmsByGenres, setFilmsByGenres] = useState([]);
+    const [isFilmsLoading, setIsFilmsLoading] = useState(false);
+    const isInitRef = useRef(true);
 
     useEffect(() => {
         const fetchFilms = async () => {
-            // setIsLoading(true);
-            const response = await httpService({
-                params,
-                method: 'GET',
-                url: 'movies'
-            });
+            if (!isInitRef.current) {
+                setIsFilmsLoading(true);
+                const response = await httpService({
+                    params: {
+                        ...params,
+                        search: filmDetails.genres[0]
+                    },
+                    method: 'GET',
+                    url: 'movies'
+                });
 
-            const { data } = response.data;
-            setFilmsByGenres(data);
-            // setIsLoading(false);
+                const { data } = response.data;
+                setFilmsByGenres(data);
+                setIsFilmsLoading(false);
+            } else {
+                isInitRef.current = false;
+            }
         };
 
         fetchFilms();
-    }, [params]);
+    }, [params, filmDetails]);
 
     return (
         <FilmDetailsPage
             filmDetails={filmDetails}
             filmsByGenres={filmsByGenres}
+            isFilmDetailsLoading={isFilmDetailsLoading}
+            isFilmsLoading={isFilmsLoading}
         />
     );
 };
