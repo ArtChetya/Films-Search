@@ -1,7 +1,17 @@
 {
   "presets": [
-    "@babel/preset-env",
+    ["@babel/preset-env",
+      {
+        "targets": {
+          "browsers": "last 1 chrome versions"
+        }
+      }],
     "@babel/preset-react"
   ],
-  "plugins": ["react-hot-loader/babel"]
+  "plugins": [
+    "babel-plugin-styled-components",
+    "@babel/plugin-transform-async-to-generator",
+    "@babel/plugin-proposal-class-properties",
+    "react-hot-loader/babel"
+  ]
 }

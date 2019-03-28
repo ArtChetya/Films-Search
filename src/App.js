@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import './App.css';
+import 'typeface-roboto';
+import { Route } from 'react-router-dom';
+import { HomeContainer } from './pages/Home/HomeContainer';
+import { FilmDetailsPageContainer } from './pages/FilmDetailsPage/FilmDetailsPageContainer';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <h1> Hello, World! </h1>
-            </div>
-        );
-    }
+function App() {
+    return (
+        <ErrorBoundary>
+            <Route exact path="/" component={HomeContainer} />
+            <Route path="/movie/:id" component={FilmDetailsPageContainer} />
+        </ErrorBoundary>
+    );
 }
 
 export default hot(App);
