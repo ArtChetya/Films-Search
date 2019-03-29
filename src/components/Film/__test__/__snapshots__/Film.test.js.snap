@@ -1,3 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Film component should be rendered correctly 1`] = `ShallowWrapper {}`;
+exports[`Film component should be rendered correctly 1`] = `
+<Link
+  to="/movie/68718"
+>
+  <Film__StyledCard
+    raised={true}
+  >
+    <Film__StyledCardMedia
+      image="https://image.tmdb.org/t/p/w500/5WJnxuw41sddupf8cwOxYftuvJG.jpg"
+    />
+    <WithStyles(CardContent)>
+      <WithStyles(Grid)
+        alignItems="center"
+        container={true}
+        spacing={8}
+      >
+        <WithStyles(Grid)
+          item={true}
+          lg={7}
+          xs={9}
+        >
+          <TransformText
+            fontcolor="#616161"
+            transform="uppercase"
+            variant="subtitle2"
+          >
+            Django Unchained
+          </TransformText>
+        </WithStyles(Grid)>
+        <WithStyles(Grid)
+          item={true}
+          lg={5}
+          xs={3}
+        >
+          <WithStyles(Chip)
+            label="2012"
+            variant="outlined"
+          />
+        </WithStyles(Grid)>
+        <WithStyles(Grid)
+          item={true}
+          xs={12}
+        >
+          <TransformText
+            fontcolor="#616161"
+            transform="capitalize"
+            variant="caption"
+          >
+            Drama & Western
+          </TransformText>
+        </WithStyles(Grid)>
+      </WithStyles(Grid)>
+    </WithStyles(CardContent)>
+  </Film__StyledCard>
+</Link>
+`;

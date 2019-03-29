@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppBar component should be rendered correctly 1`] = `ShallowWrapper {}`;
+exports[`AppBar component should be rendered correctly 1`] = `
+<AppBar__StyledMaterialAppBar
+  bgcolor="#212121"
+  opacity={1}
+>
+  <AppBar__StyledToolbar
+    minheight="36px"
+  >
+     
+    <div>
+      Test
+    </div>
+     
+  </AppBar__StyledToolbar>
+</AppBar__StyledMaterialAppBar>
+`;

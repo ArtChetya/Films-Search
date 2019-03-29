@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer component should be rendered correctly 1`] = `ShallowWrapper {}`;
+exports[`Footer component should be rendered correctly 1`] = `
+<AppBar
+  bgcolor="#212121"
+  minheight="36px"
+  opacity={0.9}
+>
+  <ColorText
+    fontcolor="#ec407a"
+    variant="body2"
+  >
+    netflixroulette
+  </ColorText>
+</AppBar>
+`;

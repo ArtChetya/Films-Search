@@ -20,4 +20,5 @@ module.exports = {
         '!**/vendor/**'
     ],
     coverageDirectory: '<rootDir>/coverage',
+    snapshotSerializers: ["enzyme-to-json/serializer"]
 };
