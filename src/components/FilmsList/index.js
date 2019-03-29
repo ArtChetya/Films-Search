@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import grey from '@material-ui/core/es/colors/grey';
+import grey from '@material-ui/core/colors/grey';
 import Grid from '@material-ui/core/Grid';
 import { Film } from '../Film';
 import { ColorText } from '../ColorText';

@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme/build';
 import React from 'react';
-import App from './App';
+import { ColorText } from '..';
 
-describe('App component', () => {
+describe('ColorText component', () => {
     it('should be rendered correctly', () => {
-        const component = shallow(<App />);
+        const component = shallow(<ColorText />);
         expect(component).toMatchSnapshot();
     });
 });

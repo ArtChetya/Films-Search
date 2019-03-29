@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import pink from '@material-ui/core/es/colors/pink';
-import grey from '@material-ui/core/es/colors/grey';
-import lightGreen from '@material-ui/core/es/colors/lightGreen';
+import pink from '@material-ui/core/colors/pink';
+import grey from '@material-ui/core/colors/grey';
+import lightGreen from '@material-ui/core/colors/lightGreen';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import { ColorText } from '../../../../components/ColorText';

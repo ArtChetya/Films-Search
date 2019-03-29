@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { default as RouterLink } from 'react-router-dom/es/Link';
+import { Link as RouterLink } from 'react-router-dom';
 
 export const Link = styled(RouterLink)`
     && {

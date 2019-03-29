@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme/build';
 import React from 'react';
-import App from './App';
+import { Link } from '..';
 
-describe('App component', () => {
+describe('Link component', () => {
     it('should be rendered correctly', () => {
-        const component = shallow(<App />);
+        const component = shallow(<Link />);
         expect(component).toMatchSnapshot();
     });
 });
