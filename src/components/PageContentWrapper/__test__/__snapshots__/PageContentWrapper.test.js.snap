@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageContentWrapper component should be rendered correctly 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "PageContentWrapper-qa76c0-0",
+        "isStatic": true,
+        "rules": Array [
+          "&&{flex-grow:1;overflow:auto;background-color:rgb(250,250,250);padding:0 5%;}",
+        ],
+      },
+      "displayName": "PageContentWrapper",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "PageContentWrapper-qa76c0-0",
+      "target": "main",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;

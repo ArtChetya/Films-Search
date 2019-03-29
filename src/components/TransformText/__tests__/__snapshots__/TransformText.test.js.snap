@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ColorButton component should be rendered correctly 1`] = `
+exports[`TransformText component should be rendered correctly 1`] = `
 <StyledComponent
   forwardedComponent={
     Object {
@@ -8,22 +8,21 @@ exports[`ColorButton component should be rendered correctly 1`] = `
       "Naked": [Function],
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "ColorButton-sc-3irpx1-0",
+        "componentId": "TransformText-sc-1gwycye-0",
         "isStatic": false,
         "rules": Array [
           "&&{color:",
           [Function],
-          ";background-color:",
+          ";}",
+          "&&{text-transform:",
           [Function],
-          ";:hover{opacity:0.7;color:",
-          [Function],
-          ";background-color:",
-          [Function],
-          ";}}",
+          ";}",
         ],
       },
-      "displayName": "ColorButton",
-      "foldedComponentIds": Array [],
+      "displayName": "TransformText",
+      "foldedComponentIds": Array [
+        "ColorText-sc-1lve5qk-0",
+      ],
       "options": Object {
         "defaultTheme": Object {
           "breakpoints": Object {
@@ -385,14 +384,14 @@ exports[`ColorButton component should be rendered correctly 1`] = `
             "tooltip": 1500,
           },
         },
-        "name": "MuiButton",
+        "name": "MuiTypography",
+        "withTheme": true,
       },
       "propTypes": Object {
-        "backgroundcolor": [Function],
-        "fontcolor": [Function],
+        "transform": [Function],
       },
       "render": [Function],
-      "styledComponentId": "ColorButton-sc-3irpx1-0",
+      "styledComponentId": "TransformText-sc-1gwycye-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],

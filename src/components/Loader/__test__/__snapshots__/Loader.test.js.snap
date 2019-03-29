@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader component should be rendered correctly without props 1`] = `
+<Loader__StyledGrid
+  alignItems="center"
+  container={true}
+  justify="center"
+>
+  <Loader__Progress
+    loadercolor="#ec407a"
+    size="90px"
+  />
+</Loader__StyledGrid>
+`;
