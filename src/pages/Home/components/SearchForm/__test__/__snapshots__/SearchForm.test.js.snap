@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm component should be rendered correctly 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <WithStyles(Grid)
+    alignItems="center"
+    container={true}
+    justify="space-between"
+  >
+    <WithStyles(Grid)
+      item={true}
+      xs={12}
+    >
+      <TransformText
+        transform="uppercase"
+        variant="h6"
+      >
+        find your movie
+      </TransformText>
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      item={true}
+      xs={12}
+    >
+      <SearchForm__SearchField
+        fullWidth={true}
+        margin="dense"
+        onChange={[Function]}
+        value=""
+        variant="filled"
+      />
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      item={true}
+      xs={5}
+    >
+      <SearchBy
+        onOptionChange={[MockFunction]}
+        options={
+          Array [
+            Object {
+              "id": "title",
+              "label": "Title",
+            },
+            Object {
+              "id": "genres",
+              "label": "Genre",
+            },
+          ]
+        }
+        selectedOptionId="title"
+      />
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      item={true}
+    >
+      <ColorButton
+        backgroundcolor="#ec407a"
+        fontcolor="#fff"
+        size="large"
+        type="submit"
+      >
+        Search
+      </ColorButton>
+    </WithStyles(Grid)>
+  </WithStyles(Grid)>
+</form>
+`;

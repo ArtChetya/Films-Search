@@ -11,4 +11,17 @@ describe('ErrorBoundary component', () => {
         );
         expect(component).toMatchSnapshot();
     });
+
+    it('should be rendered correctly when child have error', () => {
+        const ComponentWithError = () => {
+            throw new Error('Errored!');
+        };
+
+        const component = shallow(
+            <ErrorBoundary>
+                <ComponentWithError />
+            </ErrorBoundary>
+        );
+        expect(component).toMatchSnapshot();
+    });
 });

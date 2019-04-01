@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortBy component should be rendered correctly 1`] = `
+<FilterBy
+  config={
+    Object {
+      "activeBgColor": "transparent",
+      "activeColor": "#ec407a",
+      "buttonTextTransform": "lowercase",
+      "buttonVariant": "text",
+      "defaultBgColor": "transparent",
+      "defaultColor": "#616161",
+      "title": "Sort by",
+      "titleTextTransform": "none",
+      "titleVariant": "subtitle2",
+    }
+  }
+  onOptionChange={[MockFunction]}
+  options={
+    Array [
+      Object {
+        "id": "title",
+        "label": "Title",
+      },
+      Object {
+        "id": "genres",
+        "label": "Genre",
+      },
+    ]
+  }
+  selectedOptionId="title"
+/>
+`;

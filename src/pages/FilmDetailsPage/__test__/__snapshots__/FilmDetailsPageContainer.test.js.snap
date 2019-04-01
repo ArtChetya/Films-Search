@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmDetailsPageContainer component should be rendered correctly 1`] = `
+<FilmDetailsPage
+  filmDetails={Object {}}
+  filmsByGenres={Array []}
+  isFilmDetailsLoading={false}
+  isFilmsLoading={false}
+/>
+`;

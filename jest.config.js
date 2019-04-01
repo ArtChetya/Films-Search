@@ -16,6 +16,7 @@ module.exports = {
     coverageReporters: ["json", "html"],
     collectCoverageFrom: [
         'src/**/*.{js,jsx}',
+        '!src/index.js',
         '!**/node_modules/**',
         '!**/vendor/**'
     ],

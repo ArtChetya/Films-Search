@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBy component should be rendered correctly 1`] = `
+<FilterBy
+  config={
+    Object {
+      "activeBgColor": "#ec407a",
+      "activeColor": "#fff",
+      "buttonTextTransform": "uppercase",
+      "buttonVariant": "outlined",
+      "defaultBgColor": "#616161",
+      "defaultColor": "#fff",
+      "title": "Search By",
+      "titleTextTransform": "uppercase",
+      "titleVariant": "body1",
+    }
+  }
+  onOptionChange={[MockFunction]}
+  options={
+    Array [
+      Object {
+        "id": "title",
+        "label": "Title",
+      },
+      Object {
+        "id": "genres",
+        "label": "Genre",
+      },
+    ]
+  }
+  selectedOptionId="title"
+/>
+`;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBy component should be rendered correctly 1`] = `
+<WithStyles(Grid)
+  alignItems="center"
+  container={true}
+  spacing={8}
+>
+  <WithStyles(Grid)
+    item={true}
+  >
+    <TransformText
+      fontcolor="#fff"
+      transform="uppercase"
+      variant="body1"
+    >
+      Search By
+    </TransformText>
+  </WithStyles(Grid)>
+  <WithStyles(Grid)
+    item={true}
+    key="title"
+  >
+    <ColorButton
+      backgroundcolor="#ec407a"
+      onClick={[Function]}
+      variant="outlined"
+    >
+      <TransformText
+        fontcolor="#fff"
+        transform="uppercase"
+        variant="body1"
+      >
+        Title
+      </TransformText>
+    </ColorButton>
+  </WithStyles(Grid)>
+  <WithStyles(Grid)
+    item={true}
+    key="genres"
+  >
+    <ColorButton
+      backgroundcolor="#616161"
+      onClick={[Function]}
+      variant="outlined"
+    >
+      <TransformText
+        fontcolor="#fff"
+        transform="uppercase"
+        variant="body1"
+      >
+        Genre
+      </TransformText>
+    </ColorButton>
+  </WithStyles(Grid)>
+</WithStyles(Grid)>
+`;

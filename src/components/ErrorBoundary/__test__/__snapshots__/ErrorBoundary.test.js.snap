@@ -5,3 +5,5 @@ exports[`ErrorBoundary component should be rendered correctly 1`] = `
   Test
 </div>
 `;
+
+exports[`ErrorBoundary component should be rendered correctly when child have error 1`] = `<ComponentWithError />`;

@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmDetails component should be rendered correctly 1`] = `
+<WithStyles(Grid)
+  container={true}
+  wrap="nowrap"
+>
+  <WithStyles(Grid)
+    item={true}
+    xs={3}
+  >
+    <FilmDetails__Poster
+      alt="Film Poster"
+      src="https://image.tmdb.org/t/p/w500/5WJnxuw41sddupf8cwOxYftuvJG.jpg"
+    />
+  </WithStyles(Grid)>
+  <WithStyles(Grid)
+    container={true}
+    direction="column"
+    item={true}
+    spacing={8}
+  >
+    <WithStyles(Grid)
+      container={true}
+      item={true}
+    >
+      <ColorText
+        fontcolor="#ec407a"
+        variant="h5"
+      >
+         
+        Django Unchained
+         
+      </ColorText>
+      <FilmDetails__Rating
+        label={7.9}
+        variant="outlined"
+      />
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      item={true}
+    >
+      <ColorText
+        fontcolor="#e0e0e0"
+        varaint="body1"
+      >
+        Life, liberty and the pursuit of vengeance.
+      </ColorText>
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      container={true}
+      item={true}
+    >
+      <ColorText
+        varaint="subtitle2"
+      >
+        2012
+      </ColorText>
+      <FilmDetails__MarginedText
+        varaint="subtitle2"
+      >
+        165
+         min
+      </FilmDetails__MarginedText>
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      item={true}
+    >
+      <ColorText
+        fontcolor="#e0e0e0"
+        varaint="body1"
+      >
+        With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.
+      </ColorText>
+    </WithStyles(Grid)>
+  </WithStyles(Grid)>
+</WithStyles(Grid)>
+`;
