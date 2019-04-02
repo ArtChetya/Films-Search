@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SplitPane component should be rendered correctly 1`] = `
+<AppBar
+  bgcolor="#eeeeee"
+  minheight="20px"
+  opacity={1}
+>
+  <WithStyles(Grid)
+    alignItems="center"
+    container={true}
+  >
+    <WithStyles(Grid)
+      item={true}
+      xs={6}
+    >
+       
+      <div>
+        Test 1
+      </div>
+       
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      container={true}
+      item={true}
+      justify="flex-end"
+      xs={6}
+    >
+      <WithStyles(Grid)
+        item={true}
+      >
+        <div>
+          Test 2
+        </div>
+      </WithStyles(Grid)>
+    </WithStyles(Grid)>
+  </WithStyles(Grid)>
+</AppBar>
+`;

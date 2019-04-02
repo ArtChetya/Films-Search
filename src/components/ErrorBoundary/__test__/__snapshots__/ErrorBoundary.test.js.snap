@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary component should be rendered correctly 1`] = `
+<div>
+  Test
+</div>
+`;
+
+exports[`ErrorBoundary component should be rendered correctly when child have error 1`] = `<ComponentWithError />`;

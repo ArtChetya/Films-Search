@@ -1,3 +1,10 @@
-test('adds 1 + 2 to equal 3', () => {
-    expect(1 + 2).toBe(3);
+import { shallow } from 'enzyme/build';
+import React from 'react';
+import App from './App';
+
+describe('App component', () => {
+    it('should be rendered correctly', () => {
+        const component = shallow(<App />);
+        expect(component).toMatchSnapshot();
+    });
 });

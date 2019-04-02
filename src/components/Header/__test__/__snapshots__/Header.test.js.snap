@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should be rendered correctly with content prop 1`] = `
+<AppBar
+  bgcolor="#212121"
+  minheight="36px"
+  opacity={0.9}
+>
+  <WithStyles(Grid)
+    alignItems="center"
+    container={true}
+    justify="space-between"
+  >
+    <WithStyles(Grid)
+      item={true}
+    >
+      <ColorText
+        fontcolor="#ec407a"
+        variant="h6"
+      >
+        netflixroulette
+      </ColorText>
+    </WithStyles(Grid)>
+    <Header__GridMarginTop
+      item={true}
+      xs={12}
+    >
+      <div>
+        Test
+      </div>
+    </Header__GridMarginTop>
+  </WithStyles(Grid)>
+</AppBar>
+`;
+
+exports[`Header component should be rendered correctly with hasSearch and content prop 1`] = `
+<AppBar
+  bgcolor="#212121"
+  minheight="36px"
+  opacity={0.9}
+>
+  <WithStyles(Grid)
+    alignItems="center"
+    container={true}
+    justify="space-between"
+  >
+    <WithStyles(Grid)
+      item={true}
+    >
+      <ColorText
+        fontcolor="#ec407a"
+        variant="h6"
+      >
+        netflixroulette
+      </ColorText>
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      item={true}
+    >
+      <Link
+        to="/"
+      >
+        <ColorButton
+          size="medium"
+          variant="contained"
+        >
+          Search
+        </ColorButton>
+      </Link>
+    </WithStyles(Grid)>
+    <Header__GridMarginTop
+      item={true}
+      xs={12}
+    >
+      <div>
+        Test
+      </div>
+    </Header__GridMarginTop>
+  </WithStyles(Grid)>
+</AppBar>
+`;
+
+exports[`Header component should be rendered correctly with hasSearch prop 1`] = `
+<AppBar
+  bgcolor="#212121"
+  minheight="36px"
+  opacity={0.9}
+>
+  <WithStyles(Grid)
+    alignItems="center"
+    container={true}
+    justify="space-between"
+  >
+    <WithStyles(Grid)
+      item={true}
+    >
+      <ColorText
+        fontcolor="#ec407a"
+        variant="h6"
+      >
+        netflixroulette
+      </ColorText>
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      item={true}
+    >
+      <Link
+        to="/"
+      >
+        <ColorButton
+          size="medium"
+          variant="contained"
+        >
+          Search
+        </ColorButton>
+      </Link>
+    </WithStyles(Grid)>
+  </WithStyles(Grid)>
+</AppBar>
+`;
+
+exports[`Header component should be rendered correctly without props 1`] = `
+<AppBar
+  bgcolor="#212121"
+  minheight="36px"
+  opacity={0.9}
+>
+  <WithStyles(Grid)
+    alignItems="center"
+    container={true}
+    justify="space-between"
+  >
+    <WithStyles(Grid)
+      item={true}
+    >
+      <ColorText
+        fontcolor="#ec407a"
+        variant="h6"
+      >
+        netflixroulette
+      </ColorText>
+    </WithStyles(Grid)>
+  </WithStyles(Grid)>
+</AppBar>
+`;

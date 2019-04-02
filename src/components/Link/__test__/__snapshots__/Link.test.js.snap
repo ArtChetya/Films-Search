@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link component should be rendered correctly 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "Link-sc-1532py-0",
+        "isStatic": true,
+        "rules": Array [
+          "&&{color:initial;text-decoration:none;}",
+        ],
+      },
+      "displayName": "Link",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "Link-sc-1532py-0",
+      "target": [Function],
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import 'typeface-roboto';
 import { Route } from 'react-router-dom';
 import { HomeContainer } from './pages/Home/HomeContainer';
 import { FilmDetailsPageContainer } from './pages/FilmDetailsPage/FilmDetailsPageContainer';
