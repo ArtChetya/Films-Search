@@ -6,7 +6,7 @@ import grey from '@material-ui/core/colors/grey';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
-import { ColorText } from '../../../../components/ColorText';
+import { ColorText } from 'components';
 
 const Poster = styled.img`
     && {

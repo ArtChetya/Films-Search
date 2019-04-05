@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import {
+    Header,
+    Footer,
+    SplitPane,
+    PageGrid,
+    FilmsList,
+    Loader,
+    PageContentWrapper
+} from 'components';
 import { SearchForm } from './components/SearchForm';
-import { PageContentWrapper } from '../../components/PageContentWrapper';
-import { SplitPane } from '../../components/SplitPane';
-import { PageGrid } from '../../components/PageGrid';
 import { SortBy } from './components/SortBy';
-import { FilmsList } from '../../components/FilmsList';
-import { Loader } from '../../components/Loader';
 import { FilmsFound } from './components/FilmsFound';
 import { filmsConnector } from '../../features/films';
 
