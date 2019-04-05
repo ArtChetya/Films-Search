@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import pink from '@material-ui/core/colors/pink';
@@ -22,14 +22,16 @@ const SearchField = styled(TextField)`
     }
 `;
 
-export const SearchForm = ({
-    search,
-    setSearch,
-    searchByOptions,
-    searchById,
-    setSearchById,
-    onSearch
-}) => {
+export const SearchForm = ({ onSearch }) => {
+    const [searchField, setSearchField] = useState('');
+
+    const searchByOptionsList = [
+        { id: 'title', label: 'Title' },
+        { id: 'genres', label: 'Genre' }
+    ];
+    const [searchByOptions] = useState(searchByOptionsList);
+    const [searchBy, setSearchBy] = useState(searchByOptionsList[0].id);
+
     return (
         <form onSubmit={event => onSearch(event, searchField, searchBy)}>
             <Grid container justify="space-between" alignItems="center">
@@ -41,8 +43,8 @@ export const SearchForm = ({
 
                 <Grid item xs={12}>
                     <SearchField
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
+                        value={searchField}
+                        onChange={e => setSearchField(e.target.value)}
                         fullWidth
                         margin="dense"
                         variant="filled"
