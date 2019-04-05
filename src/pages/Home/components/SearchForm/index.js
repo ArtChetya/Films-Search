@@ -31,7 +31,7 @@ export const SearchForm = ({
     onSearch
 }) => {
     return (
-        <form onSubmit={onSearch}>
+        <form onSubmit={event => onSearch(event, searchField, searchBy)}>
             <Grid container justify="space-between" alignItems="center">
                 <Grid item xs={12}>
                     <TransformText transform="uppercase" variant="h6">
@@ -52,8 +52,8 @@ export const SearchForm = ({
                 <Grid item xs={5}>
                     <SearchBy
                         options={searchByOptions}
-                        selectedOptionId={searchById}
-                        onOptionChange={setSearchById}
+                        selectedOptionId={searchBy}
+                        onOptionChange={setSearchBy}
                     />
                 </Grid>
 
@@ -73,10 +73,5 @@ export const SearchForm = ({
 };
 
 SearchForm.propTypes = {
-    search: PropTypes.string.isRequired,
-    setSearch: PropTypes.func.isRequired,
-    searchByOptions: PropTypes.array.isRequired,
-    searchById: PropTypes.string.isRequired,
-    setSearchById: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired
 };
