@@ -19,7 +19,8 @@
         "map": [
           ["components", "./src/components"],
           ["features", "./src/features/"],
-          ["services", "./src/services/"]
+          ["services", "./src/services/"],
+          ["utils", "./src/utils/"]
         ],
         "extensions": ["*", ".js", ".jsx"]
       },

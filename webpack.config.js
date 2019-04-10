@@ -61,7 +61,8 @@ module.exports = (env, argv) => {
             alias: {
                 components: path.resolve(__dirname, 'src/components'),
                 features: path.resolve(__dirname, 'src/features/'),
-                services: path.resolve(__dirname, 'src/services/')
+                services: path.resolve(__dirname, 'src/services/'),
+                utils: path.resolve(__dirname, 'src/utils/')
             }
         },
         output: {
