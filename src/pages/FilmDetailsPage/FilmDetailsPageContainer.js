@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { httpService } from '../../services/httpService';
+import { httpService } from '../../services';
 import { FilmDetailsPage } from '.';
 
 export const FilmDetailsPageContainer = ({ match }) => {

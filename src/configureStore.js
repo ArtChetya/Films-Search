@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { searchParams } from './features/searchParams';
-import { filmsInfo } from './features/films';
+import { searchParams } from 'features/searchParams';
+import { filmsInfo } from 'features/films';
 
 const rootReducer = combineReducers({
     searchParams,

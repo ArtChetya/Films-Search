@@ -17,7 +17,9 @@
     "import/resolver": {
       "alias": {
         "map": [
-          ["components", "./src/components"]
+          ["components", "./src/components"],
+          ["features", "./src/features/"],
+          ["services", "./src/services/"]
         ],
         "extensions": ["*", ".js", ".jsx"]
       },

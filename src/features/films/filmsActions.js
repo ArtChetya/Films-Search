@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { httpService } from '../../services/httpService';
+import { httpService } from '../../services';
 
 export const filmsLoading = createAction('FILMS_LOADING', flag => ({ flag }));
 export const films = createAction('FILMS', data => ({ data }));

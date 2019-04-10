@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { act } from 'react-dom/test-utils';
-import { httpService } from '../../../services/httpService';
+import { httpService } from '../../../services';
 import { FilmDetailsPageContainer } from '../FilmDetailsPageContainer';
 
 jest.mock('../../../services/httpService');

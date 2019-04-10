@@ -11,7 +11,7 @@ import {
     FilmsList,
     Loader
 } from 'components';
-import { FilmDetails } from './components/FilmDetails';
+import { FilmDetails } from './components';
 
 export const FilmDetailsPage = ({
     filmDetails,

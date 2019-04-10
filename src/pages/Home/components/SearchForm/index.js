@@ -5,7 +5,7 @@ import pink from '@material-ui/core/colors/pink';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { ColorButton, TransformText } from 'components';
-import { SearchBy } from '../SearchBy';
+import { SearchBy } from '..';
 
 const SearchField = styled(TextField)`
     && {

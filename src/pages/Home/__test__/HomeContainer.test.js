@@ -2,7 +2,7 @@ import { shallow } from 'enzyme/build';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { httpService } from '../../../services/httpService';
+import { httpService } from '../../../services';
 import { HomeContainer } from '../HomeContainer';
 
 jest.mock('../../../services/httpService');

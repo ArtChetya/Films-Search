@@ -9,10 +9,8 @@ import {
     Loader,
     PageContentWrapper
 } from 'components';
-import { SearchForm } from './components/SearchForm';
-import { SortBy } from './components/SortBy';
-import { FilmsFound } from './components/FilmsFound';
-import { filmsConnector } from '../../features/films';
+import { filmsConnector } from 'features/films';
+import { SearchForm, SortBy, FilmsFound } from './components';
 
 const FilmsListConnected = filmsConnector(FilmsList);
 const FilmsFoundConnected = filmsConnector(FilmsFound);
