@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { httpService } from 'services';
+import { httpService, API_CONSTANTS } from 'services';
 import { fetchFilms } from '../films';
 import { searchField } from '../searchParams';
 
@@ -13,10 +13,7 @@ export const fetchFilmDetails = filmId => async dispatch => {
     dispatch(filmDetailsLoading(true));
 
     try {
-        const response = await httpService({
-            method: 'GET',
-            url: `movies/${filmId}`
-        });
+        const response = await httpService(API_CONSTANTS.FILM_DETAILS(filmId));
 
         dispatch(filmDetails(response.data));
     } catch (e) {
