@@ -2,7 +2,7 @@
 
 exports[`SearchForm component should be rendered correctly 1`] = `
 <form
-  onSubmit={[MockFunction]}
+  onSubmit={[Function]}
 >
   <WithStyles(Grid)
     alignItems="center"
@@ -37,7 +37,7 @@ exports[`SearchForm component should be rendered correctly 1`] = `
       xs={5}
     >
       <SearchBy
-        onOptionChange={[MockFunction]}
+        onOptionChange={[Function]}
         options={
           Array [
             Object {

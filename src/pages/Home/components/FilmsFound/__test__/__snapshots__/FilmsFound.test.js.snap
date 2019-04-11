@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmsFound component should be rendered correctly 1`] = `
+<ColorText
+  fontcolor="#212121"
+  variant="subtitle2"
+>
+  2
+   movies found
+</ColorText>
+`;
