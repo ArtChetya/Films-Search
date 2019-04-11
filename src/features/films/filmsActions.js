@@ -1,15 +1,16 @@
 import { createAction } from 'redux-actions';
-import { httpService } from '../../services';
+import { httpService } from 'services';
 
 export const filmsLoading = createAction('FILMS_LOADING', flag => ({ flag }));
 export const films = createAction('FILMS', data => ({ data }));
 
-export const fetchFilms = requestParams => async dispatch => {
+export const fetchFilms = () => async (dispatch, getState) => {
     dispatch(filmsLoading(true));
 
+    const { searchParams } = getState();
     const params = {
-        ...requestParams,
-        search: requestParams.search.length ? requestParams.search : undefined
+        ...searchParams,
+        search: searchParams.search.length ? searchParams.search : undefined
     };
 
     try {

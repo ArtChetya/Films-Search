@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { params, sortBy } from './searchParamsActions';
+import { params, sortBy, searchField } from './searchParamsActions';
 
 const defaultState = {
     search: '',
@@ -21,6 +21,12 @@ export const searchParams = handleActions(
             return {
                 ...state,
                 sortBy: id
+            };
+        },
+        [searchField]: (state, { payload: { text } }) => {
+            return {
+                ...state,
+                search: text
             };
         }
     },

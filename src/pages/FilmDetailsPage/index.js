@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import grey from '@material-ui/core/colors/grey';
+import { filmsConnector } from 'features/films';
 import {
     PageGrid,
     Header,
@@ -13,9 +14,10 @@ import {
 } from 'components';
 import { FilmDetails } from './components';
 
+const FilmsListConnected = filmsConnector(FilmsList);
+
 export const FilmDetailsPage = ({
     filmDetails,
-    filmsByGenres,
     isFilmDetailsLoading,
     isFilmsLoading
 }) => {
@@ -49,11 +51,7 @@ export const FilmDetailsPage = ({
             />
 
             <PageContentWrapper>
-                {isFilmsLoading ? (
-                    <Loader />
-                ) : (
-                    <FilmsList films={filmsByGenres} />
-                )}
+                {isFilmsLoading ? <Loader /> : <FilmsListConnected />}
             </PageContentWrapper>
 
             <Footer />
@@ -63,7 +61,6 @@ export const FilmDetailsPage = ({
 
 FilmDetailsPage.propTypes = {
     filmDetails: PropTypes.object.isRequired,
-    filmsByGenres: PropTypes.array.isRequired,
     isFilmDetailsLoading: PropTypes.bool.isRequired,
     isFilmsLoading: PropTypes.bool.isRequired
 };

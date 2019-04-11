@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { params, sortBy } from 'features/searchParams';
 import { fetchFilms } from 'features/films';
 
-const mapStateToProps = ({ filmsInfo, searchParams }) => ({
+const mapStateToProps = ({ searchParams, filmsInfo: { isFilmsLoading } }) => ({
     sortBy: searchParams.sortBy,
     params: searchParams,
-    isFilmsLoading: filmsInfo.isFilmsLoading
+    isFilmsLoading
 });
 
 const mapDispatchToProps = dispatch => ({

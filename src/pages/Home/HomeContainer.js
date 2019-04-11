@@ -29,17 +29,34 @@ export const HomeContainer = ({
             sortBy,
             searchBy
         });
+        fetchFilms();
+    };
+
+    const onSort = id => {
+        if (id !== sortBy) {
+            setSortBy(id);
+            fetchFilms();
+        }
     };
 
     useEffect(() => {
-        fetchFilms(params);
-    }, [params, fetchFilms]);
+        const defaultParams = {
+            search: '',
+            searchBy: 'title',
+            sortBy: 'release_date',
+            sortOrder: 'desc',
+            limit: 50
+        };
+
+        setParams(defaultParams);
+        fetchFilms();
+    }, [setParams, fetchFilms]);
 
     return (
         <Home
             sortByOptions={sortByOptions}
             sortById={sortBy}
-            setSortById={setSortBy}
+            setSortById={onSort}
             onSearch={onSearch}
             isLoading={isFilmsLoading}
         />
