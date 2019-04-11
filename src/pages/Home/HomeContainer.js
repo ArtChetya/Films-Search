@@ -16,9 +16,7 @@ export const HomeContainer = ({
     ];
     const [sortByOptions] = useState(sortByOptionsList);
 
-    const onSearch = (event, search, searchBy) => {
-        event.preventDefault();
-
+    const onSearch = (search, searchBy) => {
         const isByTitleSearch = searchBy === 'title';
 
         const searchVal = isByTitleSearch ? search : search.split(' ')[0];

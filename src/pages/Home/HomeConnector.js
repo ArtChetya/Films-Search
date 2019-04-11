@@ -10,7 +10,7 @@ const mapStateToProps = ({ searchParams, filmsInfo: { isFilmsLoading } }) => ({
 
 const mapDispatchToProps = dispatch => ({
     setSortBy: id => dispatch(sortBy(id)),
-    fetchFilms: fetchParams => dispatch(fetchFilms(fetchParams)),
+    fetchFilms: () => dispatch(fetchFilms()),
     setParams: data => dispatch(params(data))
 });
 

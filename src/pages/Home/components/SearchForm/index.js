@@ -31,8 +31,13 @@ export const SearchForm = ({ onSearch }) => {
     const [searchByOptions] = useState(searchByOptionsList);
     const [searchBy, setSearchBy] = useState(searchByOptionsList[0].id);
 
+    const onSubmit = event => {
+        event.preventDefault();
+        onSearch(searchField, searchBy);
+    };
+
     return (
-        <form onSubmit={event => onSearch(event, searchField, searchBy)}>
+        <form onSubmit={onSubmit}>
             <Grid container justify="space-between" alignItems="center">
                 <Grid item xs={12}>
                     <TransformText transform="uppercase" variant="h6">
