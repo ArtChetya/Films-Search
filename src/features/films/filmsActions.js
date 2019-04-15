@@ -22,7 +22,7 @@ export const fetchFilms = () => async (dispatch, getState) => {
         const { data } = response.data;
         dispatch(films(data));
     } catch (e) {
-        console.log(e);
+        console.error(e);
     } finally {
         dispatch(filmsLoading(false));
     }

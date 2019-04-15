@@ -17,7 +17,7 @@ export const fetchFilmDetails = filmId => async dispatch => {
 
         dispatch(filmDetails(response.data));
     } catch (e) {
-        console.log(e);
+        console.error(e);
     } finally {
         dispatch(filmDetailsLoading(false));
     }

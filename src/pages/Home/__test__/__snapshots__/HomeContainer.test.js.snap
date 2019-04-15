@@ -2,8 +2,10 @@
 
 exports[`HomeContainer component should be rendered correctly 1`] = `
 <Home
+  isLoading={false}
   onSearch={[Function]}
   setSortById={[Function]}
+  sortById="release_date"
   sortByOptions={
     Array [
       Object {
