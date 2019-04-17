@@ -1,69 +1,34 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { httpService } from '../../services/httpService';
 import { FilmDetailsPage } from '.';
 
-export const FilmDetailsPageContainer = ({ match }) => {
-    const defaultParams = {
-        search: undefined,
-        searchBy: 'genres',
-        sortBy: 'release_date',
-        sortOrder: 'desc',
-        limit: 50
-    };
-    const [params] = useState(defaultParams);
-
-    const [filmDetails, setFilmDetails] = useState({});
-    const [isFilmDetailsLoading, setIsFilmDetailsLoading] = useState(false);
-
+export const FilmDetailsPageContainer = ({
+    match,
+    fetchFilmDetailsInfo,
+    isFilmDetailsLoading,
+    isFilmsLoading,
+    filmDetails,
+    setParams
+}) => {
     useEffect(() => {
-        const fetchFilm = async () => {
-            setIsFilmDetailsLoading(true);
-            const response = await httpService({
-                method: 'GET',
-                url: `movies/${match.params.id}`
-            });
-
-            const film = response.data;
-            setFilmDetails(film);
-            setIsFilmDetailsLoading(false);
+        const defaultParams = {
+            search: '',
+            searchBy: 'genres',
+            sortBy: 'release_date',
+            sortOrder: 'desc',
+            limit: 50
         };
 
-        fetchFilm();
-    }, [match.params.id]);
-
-    const [filmsByGenres, setFilmsByGenres] = useState([]);
-    const [isFilmsLoading, setIsFilmsLoading] = useState(false);
-    const isInitRef = useRef(true);
+        setParams(defaultParams);
+    }, [setParams]);
 
     useEffect(() => {
-        const fetchFilms = async () => {
-            if (!isInitRef.current) {
-                setIsFilmsLoading(true);
-                const response = await httpService({
-                    params: {
-                        ...params,
-                        search: filmDetails.genres[0]
-                    },
-                    method: 'GET',
-                    url: 'movies'
-                });
-
-                const { data } = response.data;
-                setFilmsByGenres(data);
-                setIsFilmsLoading(false);
-            } else {
-                isInitRef.current = false;
-            }
-        };
-
-        fetchFilms();
-    }, [params, filmDetails]);
+        fetchFilmDetailsInfo(match.params.id);
+    }, [match.params.id, fetchFilmDetailsInfo]);
 
     return (
         <FilmDetailsPage
             filmDetails={filmDetails}
-            filmsByGenres={filmsByGenres}
             isFilmDetailsLoading={isFilmDetailsLoading}
             isFilmsLoading={isFilmsLoading}
         />
@@ -71,5 +36,10 @@ export const FilmDetailsPageContainer = ({ match }) => {
 };
 
 FilmDetailsPageContainer.propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    fetchFilmDetailsInfo: PropTypes.func.isRequired,
+    filmDetails: PropTypes.object.isRequired,
+    isFilmDetailsLoading: PropTypes.bool.isRequired,
+    isFilmsLoading: PropTypes.bool.isRequired,
+    setParams: PropTypes.func.isRequired
 };

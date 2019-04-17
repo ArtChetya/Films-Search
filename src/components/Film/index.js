@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import grey from '@material-ui/core/colors/grey';
 import Chip from '@material-ui/core/Chip';
+import { releaseDateToYear } from 'utils';
 import { CardMedia } from '@material-ui/core';
 import { TransformText } from '../TransformText';
 import { Link } from '../Link';
@@ -64,7 +65,7 @@ const StyledCardMedia = styled(CardMedia)`
 `;
 
 export const Film = ({ film }) => {
-    const year = film.release_date.split('-')[0];
+    const year = releaseDateToYear(film.release_date);
 
     return (
         <Link to={`/movie/${film.id}`}>

@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import pink from '@material-ui/core/colors/pink';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import { ColorButton } from '../../../../components/ColorButton';
-import { TransformText } from '../../../../components/TransformText';
-import { SearchBy } from '../SearchBy';
+import { ColorButton, TransformText } from 'components';
+import { SearchBy } from '..';
 
 const SearchField = styled(TextField)`
     && {
@@ -22,16 +21,23 @@ const SearchField = styled(TextField)`
     }
 `;
 
-export const SearchForm = ({
-    search,
-    setSearch,
-    searchByOptions,
-    searchById,
-    setSearchById,
-    onSearch
-}) => {
+export const SearchForm = ({ onSearch }) => {
+    const [searchField, setSearchField] = useState('');
+
+    const searchByOptionsList = [
+        { id: 'title', label: 'Title' },
+        { id: 'genres', label: 'Genre' }
+    ];
+    const [searchByOptions] = useState(searchByOptionsList);
+    const [searchBy, setSearchBy] = useState(searchByOptionsList[0].id);
+
+    const onSubmit = event => {
+        event.preventDefault();
+        onSearch(searchField, searchBy);
+    };
+
     return (
-        <form onSubmit={onSearch}>
+        <form onSubmit={onSubmit}>
             <Grid container justify="space-between" alignItems="center">
                 <Grid item xs={12}>
                     <TransformText transform="uppercase" variant="h6">
@@ -41,8 +47,8 @@ export const SearchForm = ({
 
                 <Grid item xs={12}>
                     <SearchField
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
+                        value={searchField}
+                        onChange={e => setSearchField(e.target.value)}
                         fullWidth
                         margin="dense"
                         variant="filled"
@@ -52,8 +58,8 @@ export const SearchForm = ({
                 <Grid item xs={5}>
                     <SearchBy
                         options={searchByOptions}
-                        selectedOptionId={searchById}
-                        onOptionChange={setSearchById}
+                        selectedOptionId={searchBy}
+                        onOptionChange={setSearchBy}
                     />
                 </Grid>
 
@@ -73,10 +79,5 @@ export const SearchForm = ({
 };
 
 SearchForm.propTypes = {
-    search: PropTypes.string.isRequired,
-    setSearch: PropTypes.func.isRequired,
-    searchByOptions: PropTypes.array.isRequired,
-    searchById: PropTypes.string.isRequired,
-    setSearchById: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired
 };

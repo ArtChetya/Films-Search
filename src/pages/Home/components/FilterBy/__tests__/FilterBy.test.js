@@ -3,7 +3,7 @@ import React from 'react';
 import { FilterBy } from '..';
 import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
-import { ColorButton } from '../../../../../components/ColorButton';
+import { ColorButton } from 'components';
 
 describe('FilterBy component', () => {
     let config;

@@ -2,25 +2,8 @@
 
 exports[`HomeContainer component should be rendered correctly 1`] = `
 <Home
-  films={Array []}
   isLoading={false}
   onSearch={[Function]}
-  search=""
-  searchById="title"
-  searchByOptions={
-    Array [
-      Object {
-        "id": "title",
-        "label": "Title",
-      },
-      Object {
-        "id": "genres",
-        "label": "Genre",
-      },
-    ]
-  }
-  setSearch={[Function]}
-  setSearchById={[Function]}
   setSortById={[Function]}
   sortById="release_date"
   sortByOptions={

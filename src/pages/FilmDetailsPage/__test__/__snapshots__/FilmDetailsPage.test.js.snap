@@ -48,65 +48,7 @@ exports[`FilmDetailsPage component should be rendered correctly 1`] = `
     right={false}
   />
   <PageContentWrapper>
-    <FilmsList
-      films={
-        Array [
-          Object {
-            "budget": 0,
-            "genres": Array [
-              "Action",
-              "Adventure",
-              "Fantasy",
-              "Science Fiction",
-            ],
-            "id": 181790,
-            "overview": "Sean and Hank go on their biggest adventure yet, to the moon.",
-            "poster_path": "https://image.tmdb.org/t/p/w500/98tbNloMBztAVnWpAznKKVUdi2O.jpg",
-            "release_date": "2018-12-31",
-            "revenue": 0,
-            "runtime": null,
-            "tagline": "",
-            "title": "Journey 3: From the Earth to the Moon",
-            "vote_average": 0,
-            "vote_count": 7,
-          },
-          Object {
-            "budget": 10000000,
-            "genres": Array [
-              "Comedy",
-              "Drama",
-              "History",
-            ],
-            "id": 371638,
-            "overview": "An aspiring actor in Hollywood meets an enigmatic stranger by the name of Tommy Wiseau",
-            "poster_path": "https://image.tmdb.org/t/p/w500/jj84nF5vYRD0HUTowBKcrKk8hZP.jpg",
-            "release_date": "2017-11-30",
-            "revenue": 27129350,
-            "runtime": 104,
-            "tagline": "I did naaaht! Oh, hi Mark",
-            "title": "The Disaster Artist",
-            "vote_average": 7.2,
-            "vote_count": 808,
-          },
-          Object {
-            "budget": 0,
-            "genres": Array [
-              "Documentary",
-            ],
-            "id": 464593,
-            "overview": "An astonishing journey revealing the awesome power of the natural world.",
-            "poster_path": "https://image.tmdb.org/t/p/w500/7OKStVtpeptnfIgxXEyQubMMTey.jpg",
-            "release_date": "2017-08-04",
-            "revenue": 0,
-            "runtime": 95,
-            "tagline": "One day. One planet. Infinite wonder.",
-            "title": "Earth: One Amazing Day",
-            "vote_average": 7.8,
-            "vote_count": 9,
-          },
-        ]
-      }
-    />
+    <Connect(FilmsList) />
   </PageContentWrapper>
   <Footer />
 </PageGrid>
@@ -137,65 +79,7 @@ exports[`FilmDetailsPage component should be rendered correctly with film detail
     right={false}
   />
   <PageContentWrapper>
-    <FilmsList
-      films={
-        Array [
-          Object {
-            "budget": 0,
-            "genres": Array [
-              "Action",
-              "Adventure",
-              "Fantasy",
-              "Science Fiction",
-            ],
-            "id": 181790,
-            "overview": "Sean and Hank go on their biggest adventure yet, to the moon.",
-            "poster_path": "https://image.tmdb.org/t/p/w500/98tbNloMBztAVnWpAznKKVUdi2O.jpg",
-            "release_date": "2018-12-31",
-            "revenue": 0,
-            "runtime": null,
-            "tagline": "",
-            "title": "Journey 3: From the Earth to the Moon",
-            "vote_average": 0,
-            "vote_count": 7,
-          },
-          Object {
-            "budget": 10000000,
-            "genres": Array [
-              "Comedy",
-              "Drama",
-              "History",
-            ],
-            "id": 371638,
-            "overview": "An aspiring actor in Hollywood meets an enigmatic stranger by the name of Tommy Wiseau",
-            "poster_path": "https://image.tmdb.org/t/p/w500/jj84nF5vYRD0HUTowBKcrKk8hZP.jpg",
-            "release_date": "2017-11-30",
-            "revenue": 27129350,
-            "runtime": 104,
-            "tagline": "I did naaaht! Oh, hi Mark",
-            "title": "The Disaster Artist",
-            "vote_average": 7.2,
-            "vote_count": 808,
-          },
-          Object {
-            "budget": 0,
-            "genres": Array [
-              "Documentary",
-            ],
-            "id": 464593,
-            "overview": "An astonishing journey revealing the awesome power of the natural world.",
-            "poster_path": "https://image.tmdb.org/t/p/w500/7OKStVtpeptnfIgxXEyQubMMTey.jpg",
-            "release_date": "2017-08-04",
-            "revenue": 0,
-            "runtime": 95,
-            "tagline": "One day. One planet. Infinite wonder.",
-            "title": "Earth: One Amazing Day",
-            "vote_average": 7.8,
-            "vote_count": 9,
-          },
-        ]
-      }
-    />
+    <Connect(FilmsList) />
   </PageContentWrapper>
   <Footer />
 </PageGrid>

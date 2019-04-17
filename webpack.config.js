@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const path = require('path');
 
 module.exports = (env, argv) => {
     const { mode } = argv;
@@ -56,7 +57,13 @@ module.exports = (env, argv) => {
             ]
         },
         resolve: {
-            extensions: ['*', '.js', '.jsx']
+            extensions: ['*', '.js', '.jsx'],
+            alias: {
+                components: path.resolve(__dirname, 'src/components'),
+                features: path.resolve(__dirname, 'src/features/'),
+                services: path.resolve(__dirname, 'src/services/'),
+                utils: path.resolve(__dirname, 'src/utils/')
+            }
         },
         output: {
             path: __dirname + '/dist',

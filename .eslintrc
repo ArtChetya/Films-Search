@@ -15,6 +15,15 @@
   ],
   "settings": {
     "import/resolver": {
+      "alias": {
+        "map": [
+          ["components", "./src/components"],
+          ["features", "./src/features/"],
+          ["services", "./src/services/"],
+          ["utils", "./src/utils/"]
+        ],
+        "extensions": ["*", ".js", ".jsx"]
+      },
       "webpack": {
         "config": "webpack.config.js"
       }

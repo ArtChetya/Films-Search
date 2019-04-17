@@ -1,19 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import grey from '@material-ui/core/colors/grey';
-import { PageGrid } from '../../components/PageGrid';
-import { Header } from '../../components/Header';
-import { SplitPane } from '../../components/SplitPane';
-import { ColorText } from '../../components/ColorText';
-import { PageContentWrapper } from '../../components/PageContentWrapper';
-import { Footer } from '../../components/Footer';
-import { FilmsList } from '../../components/FilmsList';
-import { FilmDetails } from './components/FilmDetails';
-import { Loader } from '../../components/Loader';
+import { filmsConnector } from 'features/films';
+import {
+    PageGrid,
+    Header,
+    SplitPane,
+    ColorText,
+    PageContentWrapper,
+    Footer,
+    FilmsList,
+    Loader
+} from 'components';
+import { FilmDetails } from './components';
+
+const FilmsListConnected = filmsConnector(FilmsList);
 
 export const FilmDetailsPage = ({
     filmDetails,
-    filmsByGenres,
     isFilmDetailsLoading,
     isFilmsLoading
 }) => {
@@ -47,11 +51,7 @@ export const FilmDetailsPage = ({
             />
 
             <PageContentWrapper>
-                {isFilmsLoading ? (
-                    <Loader />
-                ) : (
-                    <FilmsList films={filmsByGenres} />
-                )}
+                {isFilmsLoading ? <Loader /> : <FilmsListConnected />}
             </PageContentWrapper>
 
             <Footer />
@@ -61,7 +61,6 @@ export const FilmDetailsPage = ({
 
 FilmDetailsPage.propTypes = {
     filmDetails: PropTypes.object.isRequired,
-    filmsByGenres: PropTypes.array.isRequired,
     isFilmDetailsLoading: PropTypes.bool.isRequired,
     isFilmsLoading: PropTypes.bool.isRequired
 };

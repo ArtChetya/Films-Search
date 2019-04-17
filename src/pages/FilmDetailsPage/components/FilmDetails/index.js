@@ -6,7 +6,8 @@ import grey from '@material-ui/core/colors/grey';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
-import { ColorText } from '../../../../components/ColorText';
+import { ColorText } from 'components';
+import { releaseDateToYear } from 'utils';
 
 const Poster = styled.img`
     && {
@@ -30,8 +31,7 @@ const MarginedText = styled(ColorText)`
 `;
 
 export const FilmDetails = ({ filmDetails }) => {
-    const year =
-        filmDetails.release_date && filmDetails.release_date.split('-')[0];
+    const year = releaseDateToYear(filmDetails.release_date);
 
     return (
         <Grid container wrap="nowrap">
