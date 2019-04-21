@@ -8,7 +8,7 @@ exports[`Home component should be rendered correctly 1`] = `
 >
   <Header
     content={
-      <SearchForm
+      <Connect(SearchForm)
         onSearch={[MockFunction]}
       />
     }
@@ -50,7 +50,7 @@ exports[`Home component should be rendered correctly with loading 1`] = `
 >
   <Header
     content={
-      <SearchForm
+      <Connect(SearchForm)
         onSearch={[MockFunction]}
       />
     }

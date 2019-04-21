@@ -7,7 +7,10 @@ export const filmDetailsLoading = createAction(
     'FILM_DETAILS_LOADING',
     flag => ({ flag })
 );
+
 export const filmDetails = createAction('FILM_DETAILS', film => ({ film }));
+
+export const clearFilmDetails = createAction('CLEAR FILM_DETAILS');
 
 export const fetchFilmDetails = filmId => async dispatch => {
     dispatch(filmDetailsLoading(true));

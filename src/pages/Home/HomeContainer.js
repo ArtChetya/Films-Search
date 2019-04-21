@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { queryToParams } from 'utils';
 import { Home } from '.';
 
 export const HomeContainer = ({
+    match,
+    history,
     sortBy,
     setSortBy,
     fetchFilms,
-    params,
     setParams,
     isFilmsLoading
 }) => {
@@ -21,13 +23,11 @@ export const HomeContainer = ({
 
         const searchVal = isByTitleSearch ? search : search.split(' ')[0];
 
-        setParams({
-            ...params,
-            search: searchVal,
-            sortBy,
-            searchBy
-        });
-        fetchFilms();
+        history.push(
+            encodeURI(
+                `/search/search=${searchVal} searchBy=${searchBy} sortBy=${sortBy}`
+            )
+        );
     };
 
     const onSort = id => {
@@ -38,6 +38,8 @@ export const HomeContainer = ({
     };
 
     useEffect(() => {
+        const queryParams = queryToParams(match.params.query);
+
         const defaultParams = {
             search: '',
             searchBy: 'title',
@@ -46,9 +48,13 @@ export const HomeContainer = ({
             limit: 50
         };
 
-        setParams(defaultParams);
+        setParams({
+            ...defaultParams,
+            ...queryParams
+        });
+
         fetchFilms();
-    }, [setParams, fetchFilms]);
+    }, [setParams, fetchFilms, match.params.query]);
 
     return (
         <Home
@@ -62,10 +68,11 @@ export const HomeContainer = ({
 };
 
 HomeContainer.propTypes = {
+    match: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
     sortBy: PropTypes.string.isRequired,
     setSortBy: PropTypes.func.isRequired,
     fetchFilms: PropTypes.func.isRequired,
-    params: PropTypes.object.isRequired,
     setParams: PropTypes.func.isRequired,
     isFilmsLoading: PropTypes.bool.isRequired
 };

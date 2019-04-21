@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound component should be rendered correctly 1`] = `
+<span>
+  Route 
+  pathname
+   has not been matched 
+</span>
+`;
