@@ -10,10 +10,12 @@ import {
     PageContentWrapper
 } from 'components';
 import { filmsConnector } from 'features/films';
+import { searchParamsConnector } from 'features/searchParams';
 import { SearchForm, SortBy, FilmsFound } from './components';
 
 const FilmsListConnected = filmsConnector(FilmsList);
 const FilmsFoundConnected = filmsConnector(FilmsFound);
+const SearchFormConnected = searchParamsConnector(SearchForm);
 
 export const Home = ({
     sortByOptions,
@@ -24,7 +26,7 @@ export const Home = ({
 }) => {
     return (
         <PageGrid container direction="column" wrap="nowrap">
-            <Header content={<SearchForm onSearch={onSearch} />} />
+            <Header content={<SearchFormConnected onSearch={onSearch} />} />
 
             <SplitPane
                 left={<FilmsFoundConnected />}

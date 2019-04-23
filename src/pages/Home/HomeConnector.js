@@ -4,7 +4,6 @@ import { fetchFilms } from 'features/films';
 
 const mapStateToProps = ({ searchParams, filmsInfo: { isFilmsLoading } }) => ({
     sortBy: searchParams.sortBy,
-    params: searchParams,
     isFilmsLoading
 });
 

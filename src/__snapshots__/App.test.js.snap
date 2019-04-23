@@ -2,14 +2,31 @@
 
 exports[`App component should be rendered correctly 1`] = `
 <ErrorBoundary>
-  <Route
-    component={[Function]}
-    exact={true}
-    path="/"
-  />
-  <Route
-    component={[Function]}
-    path="/movie/:id"
-  />
+  <BrowserRouter>
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Redirect
+        exact={true}
+        from="/search"
+        push={false}
+        to="/"
+      />
+      <Route
+        component={[Function]}
+        path="/movie/:id"
+      />
+      <Route
+        component={[Function]}
+        path="/search/:query"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+  </BrowserRouter>
 </ErrorBoundary>
 `;

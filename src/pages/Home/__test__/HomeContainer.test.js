@@ -5,6 +5,8 @@ import { HomeContainer } from '../HomeContainer';
 jest.mock('../../../services/httpService');
 
 describe('HomeContainer component', () => {
+    let match;
+    let history;
     let sortBy;
     let setSortBy;
     let fetchFilms;
@@ -13,6 +15,14 @@ describe('HomeContainer component', () => {
     let isFilmsLoading;
 
     beforeAll(() => {
+        match = {
+            params: { query: '' }
+        };
+
+        history = {
+            push: jest.fn
+        };
+
         sortBy = 'release_date';
 
         setSortBy = jest.fn();
@@ -35,6 +45,8 @@ describe('HomeContainer component', () => {
     it('should be rendered correctly', () => {
         const component = shallow(
             <HomeContainer
+                match={match}
+                history={history}
                 sortBy={sortBy}
                 setSortBy={setSortBy}
                 fetchFilms={fetchFilms}

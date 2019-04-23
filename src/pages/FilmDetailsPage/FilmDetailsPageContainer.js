@@ -4,11 +4,13 @@ import { FilmDetailsPage } from '.';
 
 export const FilmDetailsPageContainer = ({
     match,
+    history,
     fetchFilmDetailsInfo,
     isFilmDetailsLoading,
     isFilmsLoading,
     filmDetails,
-    setParams
+    setParams,
+    clearFilmDetails
 }) => {
     useEffect(() => {
         const defaultParams = {
@@ -26,6 +28,18 @@ export const FilmDetailsPageContainer = ({
         fetchFilmDetailsInfo(match.params.id);
     }, [match.params.id, fetchFilmDetailsInfo]);
 
+    useEffect(() => {
+        if (!filmDetails) {
+            return () => {};
+        }
+
+        if (!Object.keys(filmDetails).length) {
+            history.push('/not-found');
+        }
+
+        return () => clearFilmDetails();
+    }, [filmDetails, history, clearFilmDetails]);
+
     return (
         <FilmDetailsPage
             filmDetails={filmDetails}
@@ -36,10 +50,12 @@ export const FilmDetailsPageContainer = ({
 };
 
 FilmDetailsPageContainer.propTypes = {
+    history: PropTypes.object.isRequired,
     match: PropTypes.object.isRequired,
     fetchFilmDetailsInfo: PropTypes.func.isRequired,
     filmDetails: PropTypes.object.isRequired,
     isFilmDetailsLoading: PropTypes.bool.isRequired,
     isFilmsLoading: PropTypes.bool.isRequired,
-    setParams: PropTypes.func.isRequired
+    setParams: PropTypes.func.isRequired,
+    clearFilmDetails: PropTypes.func.isRequired
 };

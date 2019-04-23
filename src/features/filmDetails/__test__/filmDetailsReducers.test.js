@@ -9,8 +9,8 @@ describe('Film Details Reducer', () => {
 
     beforeAll(() => {
         defaultFilmDetailsInfoState = {
-            filmDetails: {},
-            isFilmDetailsLoading: false
+            filmDetails: null,
+            isFilmDetailsLoading: true
         };
     });
 
@@ -40,7 +40,7 @@ describe('Film Details Reducer', () => {
 
         const expected = {
             filmDetails: film,
-            isFilmDetailsLoading: false
+            isFilmDetailsLoading: true
         };
 
         expect(
@@ -51,7 +51,7 @@ describe('Film Details Reducer', () => {
     it('should handle FILM_DETAILS_LOADING action', () => {
         const isFilmDetailsLoading = true;
         const expected = {
-            filmDetails: {},
+            filmDetails: null,
             isFilmDetailsLoading
         };
 

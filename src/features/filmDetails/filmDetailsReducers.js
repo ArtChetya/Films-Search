@@ -1,12 +1,13 @@
 import { handleActions } from 'redux-actions';
 import {
     filmDetails as filmDetailsAction,
-    filmDetailsLoading
+    filmDetailsLoading,
+    clearFilmDetails
 } from './filmDetailsActions';
 
 const defaultFilmDetailsInfoState = {
-    filmDetails: {},
-    isFilmDetailsLoading: false
+    filmDetails: null,
+    isFilmDetailsLoading: true
 };
 
 export const filmDetailsInfo = handleActions(
@@ -21,6 +22,12 @@ export const filmDetailsInfo = handleActions(
             return {
                 ...state,
                 isFilmDetailsLoading: flag
+            };
+        },
+        [clearFilmDetails]: state => {
+            return {
+                ...state,
+                filmDetailsInfo: null
             };
         }
     },
