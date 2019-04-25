@@ -28,7 +28,8 @@ function App() {
                         path="/search/:query"
                         component={HomeContainerConnected}
                     />
-                    <Route component={NotFound} />
+                    <Route path="/not-found" component={NotFound} />
+                    <Redirect to="/not-found" />
                 </Switch>
             </BrowserRouter>
         </ErrorBoundary>

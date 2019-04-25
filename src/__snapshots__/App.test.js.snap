@@ -25,6 +25,11 @@ exports[`App component should be rendered correctly 1`] = `
       />
       <Route
         component={[Function]}
+        path="/not-found"
+      />
+      <Redirect
+        push={false}
+        to="/not-found"
       />
     </Switch>
   </BrowserRouter>
