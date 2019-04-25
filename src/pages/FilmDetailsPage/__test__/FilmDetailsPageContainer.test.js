@@ -6,15 +6,21 @@ jest.mock('../../../services/httpService');
 
 describe('FilmDetailsPageContainer component', () => {
     let match;
+    let history;
     let fetchFilmDetailsInfo;
     let isFilmDetailsLoading;
     let isFilmsLoading;
     let filmDetails;
     let setParams;
+    let clearFilmDetails;
 
     beforeAll(() => {
         match = {
             params: { id: '1' }
+        };
+
+        history = {
+            push: jest.fn
         };
 
         fetchFilmDetailsInfo = jest.fn();
@@ -41,17 +47,21 @@ describe('FilmDetailsPageContainer component', () => {
         };
 
         setParams = jest.fn();
+
+        clearFilmDetails = jest.fn();
     });
 
     it('should be rendered correctly', () => {
         const component = shallow(
             <FilmDetailsPageContainer
                 match={match}
+                history={history}
                 fetchFilmDetailsInfo={fetchFilmDetailsInfo}
                 isFilmDetailsLoading={isFilmDetailsLoading}
                 isFilmsLoading={isFilmsLoading}
                 filmDetails={filmDetails}
                 setParams={setParams}
+                clearFilmDetails={clearFilmDetails}
             />
         );
 

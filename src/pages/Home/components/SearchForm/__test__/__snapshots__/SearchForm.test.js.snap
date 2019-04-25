@@ -28,6 +28,7 @@ exports[`SearchForm component should be rendered correctly 1`] = `
         fullWidth={true}
         margin="dense"
         onChange={[Function]}
+        value=""
         variant="filled"
       />
     </WithStyles(Grid)>
@@ -49,6 +50,7 @@ exports[`SearchForm component should be rendered correctly 1`] = `
             },
           ]
         }
+        selectedOptionId="title"
       />
     </WithStyles(Grid)>
     <WithStyles(Grid)
