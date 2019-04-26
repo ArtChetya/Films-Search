@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { store } from './configureStore';
+import { hydrate } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { configureStore } from './configureStore';
 
-ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+const store = configureStore(window.PRELOADED_STATE);
+
+hydrate(
+    <App Router={BrowserRouter} store={store} />,
     document.getElementById('app')
 );

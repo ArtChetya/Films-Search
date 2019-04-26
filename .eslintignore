@@ -2,5 +2,5 @@ node_modules/*
 dist
 package.json
 package-lock.json
-webpack.config.js
+webpack
 jest.config.js

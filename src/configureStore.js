@@ -10,10 +10,16 @@ const rootReducer = combineReducers({
     filmDetailsInfo
 });
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers =
+    (typeof window !== 'undefined' &&
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    compose;
 /* eslint-enable no-underscore-dangle */
 
-export const store = createStore(
-    rootReducer,
-    composeEnhancers(applyMiddleware(thunkMiddleware))
-);
+export const configureStore = initialState => {
+    return createStore(
+        rootReducer,
+        initialState,
+        composeEnhancers(applyMiddleware(thunkMiddleware))
+    );
+};
