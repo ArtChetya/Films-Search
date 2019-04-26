@@ -1,11 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component should be rendered correctly 1`] = `
-<Provider>
+<Provider
+  store={
+    Object {
+      "dispatch": [MockFunction],
+      "getState": [MockFunction],
+      "subscribe": [MockFunction],
+    }
+  }
+>
   <ErrorBoundary>
-    <Component
-      context={null}
-      location={null}
+    <Router
+      context={
+        Object {
+          "url": "some-url",
+        }
+      }
+      location="some-location"
     >
       <Switch>
         <Route
@@ -36,7 +48,7 @@ exports[`App component should be rendered correctly 1`] = `
           to="/not-found"
         />
       </Switch>
-    </Component>
+    </Router>
   </ErrorBoundary>
 </Provider>
 `;

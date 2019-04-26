@@ -15,6 +15,7 @@ import red from '@material-ui/core/colors/red';
 import { configureStore } from './configureStore';
 import App from './App';
 
+/* eslint-disable */
 function renderHTML(html, css, styles, preloadedState) {
     return `
         <!doctype html>
@@ -43,6 +44,7 @@ function renderHTML(html, css, styles, preloadedState) {
         </html>
   `;
 }
+/* eslint-enable */
 
 export default function serverRenderer() {
     return (req, res) => {
