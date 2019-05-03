@@ -9,7 +9,7 @@ describe('HomeContainer component', () => {
     let history;
     let sortBy;
     let setSortBy;
-    let fetchFilms;
+    let fetchFilmsIfNeeded;
     let params;
     let setParams;
     let isFilmsLoading;
@@ -27,7 +27,7 @@ describe('HomeContainer component', () => {
 
         setSortBy = jest.fn();
 
-        fetchFilms = jest.fn();
+        fetchFilmsIfNeeded = jest.fn();
 
         params = {
             search: undefined,
@@ -49,7 +49,7 @@ describe('HomeContainer component', () => {
                 history={history}
                 sortBy={sortBy}
                 setSortBy={setSortBy}
-                fetchFilms={fetchFilms}
+                fetchFilmsIfNeeded={fetchFilmsIfNeeded}
                 params={params}
                 setParams={setParams}
                 isFilmsLoading={isFilmsLoading}

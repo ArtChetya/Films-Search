@@ -7,7 +7,7 @@ jest.mock('../../../services/httpService');
 describe('FilmDetailsPageContainer component', () => {
     let match;
     let history;
-    let fetchFilmDetailsInfo;
+    let fetchFilmDetailsInfoIfNeeded;
     let isFilmDetailsLoading;
     let isFilmsLoading;
     let filmDetails;
@@ -23,7 +23,7 @@ describe('FilmDetailsPageContainer component', () => {
             push: jest.fn
         };
 
-        fetchFilmDetailsInfo = jest.fn();
+        fetchFilmDetailsInfoIfNeeded = jest.fn();
 
         isFilmDetailsLoading = false;
 
@@ -56,7 +56,7 @@ describe('FilmDetailsPageContainer component', () => {
             <FilmDetailsPageContainer
                 match={match}
                 history={history}
-                fetchFilmDetailsInfo={fetchFilmDetailsInfo}
+                fetchFilmDetailsInfoIfNeeded={fetchFilmDetailsInfoIfNeeded}
                 isFilmDetailsLoading={isFilmDetailsLoading}
                 isFilmsLoading={isFilmsLoading}
                 filmDetails={filmDetails}

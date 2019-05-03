@@ -6,7 +6,6 @@ const path = require('path');
 module.exports = () => {
     const mode = process.env.NODE_ENV;
     const isProduction = mode === 'production';
-    console.log(__dirname);
 
     let plugins = [
         new MiniCssExtractPlugin({

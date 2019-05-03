@@ -4,9 +4,7 @@
   "description": "Small application which goal is to search films",
   "main": "server/index.js",
   "scripts": {
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
-    "start:client": "webpack-dev-server --hot --config ./webpack.config.js --mode development",
-    "start:server": "cross-env NODE_ENV=development node ./server",
+    "start": "cross-env NODE_ENV=development node ./server",
     "build:prod": "cross-env NODE_ENV=production webpack --config ./webpack",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./webpack",
     "test": "jest --config=jest.config.js",
@@ -40,6 +38,7 @@
     "react-dom": "^16.8.4",
     "react-jss": "^8.6.1",
     "react-redux": "^6.0.1",
+    "react-router-config": "^5.0.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",

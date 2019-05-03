@@ -2,6 +2,7 @@ import { createAction } from 'redux-actions';
 import { httpService, API_CONSTANTS } from 'services';
 import { fetchFilms } from '../films';
 import { searchField } from '../searchParams';
+import { serverSideRenderedFlag } from '../serverSideRendered';
 
 export const filmDetailsLoading = createAction(
     'FILM_DETAILS_LOADING',
@@ -29,8 +30,26 @@ export const fetchFilmDetails = filmId => async dispatch => {
 export const fetchFilmDetailsInfo = filmId => async (dispatch, getState) => {
     await dispatch(fetchFilmDetails(filmId));
 
-    const genre = getState().filmDetailsInfo.filmDetails.genres[0];
+    const { filmDetails: details } = getState().filmDetailsInfo;
+    if (!details || !Object.keys(details).length) {
+        return;
+    }
+
+    const genre = details.genres[0];
 
     dispatch(searchField(genre));
-    dispatch(fetchFilms());
+    await dispatch(fetchFilms());
+};
+
+export const fetchFilmDetailsInfoIfNeeded = filmId => async (
+    dispatch,
+    getState
+) => {
+    const { serverSideRenderedFlag: ssrFlag } = getState();
+
+    if (!ssrFlag) {
+        await dispatch(fetchFilmDetailsInfo(filmId));
+    } else {
+        dispatch(serverSideRenderedFlag(false));
+    }
 };

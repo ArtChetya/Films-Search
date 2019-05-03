@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
+import { matchRoutes } from 'react-router-config';
 import { SheetsRegistry } from 'jss';
 import { ServerStyleSheet } from 'styled-components';
 import JssProvider from 'react-jss/lib/JssProvider';
@@ -14,6 +15,7 @@ import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 import { configureStore } from './configureStore';
 import App from './App';
+import { routes } from './routes.config';
 
 /* eslint-disable */
 function renderHTML(html, css, styles, preloadedState) {
@@ -39,7 +41,7 @@ function renderHTML(html, css, styles, preloadedState) {
                 '\\u003c'
             )}
             </script>
-            <script src="bundle.js"></script>
+            <script src="/bundle.js"></script>
         </body>
         </html>
   `;
@@ -47,7 +49,7 @@ function renderHTML(html, css, styles, preloadedState) {
 /* eslint-enable */
 
 export default function serverRenderer() {
-    return (req, res) => {
+    return async (req, res) => {
         const sheetsRegistry = new SheetsRegistry();
         const sheetsManager = new Map();
         const theme = createMuiTheme({
@@ -63,6 +65,18 @@ export default function serverRenderer() {
         const sheet = new ServerStyleSheet();
         const store = configureStore();
         const context = {};
+
+        const dataRequirements = matchRoutes(routes, req.url).map(
+            ({ route, match }) => {
+                const { onInit } = route.component;
+
+                return onInit instanceof Function
+                    ? onInit(store, match)
+                    : Promise.resolve(null);
+            }
+        );
+
+        await Promise.all(dataRequirements);
 
         const renderRoot = () =>
             sheet.collectStyles(
@@ -84,8 +98,7 @@ export default function serverRenderer() {
                 </JssProvider>
             );
 
-        renderToString(renderRoot());
-
+        console.log(context);
         if (context.url) {
             res.writeHead(302, {
                 Location: context.url

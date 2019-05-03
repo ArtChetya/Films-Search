@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { params } from 'features/searchParams';
-import { fetchFilmDetailsInfo, clearFilmDetails } from 'features/filmDetails';
+import {
+    fetchFilmDetailsInfoIfNeeded,
+    clearFilmDetails
+} from 'features/filmDetails';
 
 const mapStateToProps = ({
     searchParams,
@@ -14,7 +17,8 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchFilmDetailsInfo: filmId => dispatch(fetchFilmDetailsInfo(filmId)),
+    fetchFilmDetailsInfoIfNeeded: filmId =>
+        dispatch(fetchFilmDetailsInfoIfNeeded(filmId)),
     setParams: data => dispatch(params(data)),
     clearFilmDetails: () => dispatch(clearFilmDetails)
 });
