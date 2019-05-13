@@ -1,5 +1,5 @@
 export const queryToParams = query => {
-    if (!query || !query.length) {
+    if (query === 'undefined' || !query || !query.length) {
         return {};
     }
 

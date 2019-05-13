@@ -1,18 +1,13 @@
 const webpack = require('webpack');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require('path');
 
-module.exports = (env, argv) => {
-    const { mode } = argv;
+module.exports = () => {
+    const mode = process.env.NODE_ENV;
     const isProduction = mode === 'production';
 
     let plugins = [
-        new HtmlWebPackPlugin({
-            template: './src/index.html',
-            filename: './index.html'
-        }),
         new MiniCssExtractPlugin({
             filename: isProduction ? '[name].[hash].css' : '[name].css',
             chunkFilename: isProduction ? '[id].[hash].css' : '[id].css',
@@ -31,7 +26,6 @@ module.exports = (env, argv) => {
     }
 
     return {
-        entry: './src/index.js',
         module: {
             rules: [
                 {
@@ -59,22 +53,17 @@ module.exports = (env, argv) => {
         resolve: {
             extensions: ['*', '.js', '.jsx'],
             alias: {
-                components: path.resolve(__dirname, 'src/components'),
-                features: path.resolve(__dirname, 'src/features/'),
-                services: path.resolve(__dirname, 'src/services/'),
-                utils: path.resolve(__dirname, 'src/utils/')
+                'react-dom': '@hot-loader/react-dom',
+                components: path.resolve(__dirname, '../src/components'),
+                features: path.resolve(__dirname, '../src/features/'),
+                services: path.resolve(__dirname, '../src/services/'),
+                utils: path.resolve(__dirname, '../src/utils/')
             }
         },
         output: {
-            path: __dirname + '/dist',
+            path:  path.resolve(__dirname, '../dist'),
             publicPath: '/',
             filename: 'bundle.js'
-        },
-        devServer: {
-            contentBase: './dist',
-            port: 4200,
-            historyApiFallback: true,
-            hotOnly: true
         },
         devtool: isProduction ? false : 'inline-source-map',
         mode,

@@ -25,7 +25,7 @@
         "extensions": ["*", ".js", ".jsx"]
       },
       "webpack": {
-        "config": "webpack.config.js"
+        "config": "./webpack"
       }
     }
   },

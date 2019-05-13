@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { queryToParams } from 'utils';
+import { params as paramsAction } from 'features/searchParams';
+import { fetchFilms } from 'features/films';
+import { serverSideRenderedFlag } from 'features/serverSideRendered';
 import { Home } from '.';
 
 export const HomeContainer = ({
@@ -8,7 +11,7 @@ export const HomeContainer = ({
     history,
     sortBy,
     setSortBy,
-    fetchFilms,
+    fetchFilmsIfNeeded,
     setParams,
     isFilmsLoading
 }) => {
@@ -53,8 +56,8 @@ export const HomeContainer = ({
             ...queryParams
         });
 
-        fetchFilms();
-    }, [setParams, fetchFilms, match.params.query]);
+        fetchFilmsIfNeeded();
+    }, [setParams, fetchFilmsIfNeeded, match.params.query]);
 
     return (
         <Home
@@ -67,12 +70,34 @@ export const HomeContainer = ({
     );
 };
 
+HomeContainer.onInit = (store, match) => {
+    const queryParams = queryToParams(decodeURI(match.params.query));
+    const defaultParams = {
+        search: '',
+        searchBy: 'title',
+        sortBy: 'release_date',
+        sortOrder: 'desc',
+        limit: 50
+    };
+
+    store.dispatch(
+        paramsAction({
+            ...defaultParams,
+            ...queryParams
+        })
+    );
+
+    store.dispatch(serverSideRenderedFlag(true));
+
+    return store.dispatch(fetchFilms());
+};
+
 HomeContainer.propTypes = {
     match: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
     sortBy: PropTypes.string.isRequired,
     setSortBy: PropTypes.func.isRequired,
-    fetchFilms: PropTypes.func.isRequired,
+    fetchFilmsIfNeeded: PropTypes.func.isRequired,
     setParams: PropTypes.func.isRequired,
     isFilmsLoading: PropTypes.bool.isRequired
 };
