@@ -10,7 +10,7 @@ module.exports = merge(common(), {
 
     entry: [
         isDevMod && 'webpack-hot-middleware/client',
-        './src/index.js',
+        './src/index.tsx',
     ].filter(Boolean),
 
     plugins: [

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+// import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader/root';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, RouterChildContext } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ErrorBoundary } from 'components';
 import { HomeContainer } from './pages/Home/HomeContainer';
@@ -15,7 +15,30 @@ const filmDetailsPageContainerConnected = filmDetailsPageConnector(
     FilmDetailsPageContainer
 );
 
-function App({ Router, location, context, store }) {
+// App.propTypes = {
+//     Router: PropTypes.func.isRequired,
+//     location: PropTypes.string,
+//     context: PropTypes.shape({
+//         url: PropTypes.string
+//     }),
+//     store: PropTypes.shape({
+//         dispatch: PropTypes.func.isRequired,
+//         getState: PropTypes.func.isRequired
+//     }).isRequired
+// };
+// App.defaultProps = {
+//     location: null,
+//     context: null
+// };
+
+interface Props {
+    Router: React.ElementType,
+    location?: Location,
+    context?: RouterChildContext,
+    store: any
+}
+
+function App({ Router, location, context, store }: Props) {
     return (
         <Provider store={store}>
             <ErrorBoundary>
@@ -43,21 +66,5 @@ function App({ Router, location, context, store }) {
         </Provider>
     );
 }
-
-App.propTypes = {
-    Router: PropTypes.func.isRequired,
-    location: PropTypes.string,
-    context: PropTypes.shape({
-        url: PropTypes.string
-    }),
-    store: PropTypes.shape({
-        dispatch: PropTypes.func.isRequired,
-        getState: PropTypes.func.isRequired
-    }).isRequired
-};
-App.defaultProps = {
-    location: null,
-    context: null
-};
 
 export default hot(App);

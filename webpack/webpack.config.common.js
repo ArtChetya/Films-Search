@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require('path');
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = () => {
     const mode = process.env.NODE_ENV;
@@ -29,6 +31,13 @@ module.exports = () => {
         module: {
             rules: [
                 {
+                    test: /\.tsx?$/,
+                    loader: 'awesome-typescript-loader',
+                    options: {
+                        getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
+                    }
+                },
+                {
                     test: /\.(js|jsx)$/,
                     exclude: /(node_modules|bower_components)/,
                     loader: 'babel-loader'
@@ -51,7 +60,7 @@ module.exports = () => {
             ]
         },
         resolve: {
-            extensions: ['*', '.js', '.jsx'],
+            extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
             alias: {
                 'react-dom': '@hot-loader/react-dom',
                 components: path.resolve(__dirname, '../src/components'),
