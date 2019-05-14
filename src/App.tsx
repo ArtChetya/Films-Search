@@ -1,7 +1,7 @@
 import * as React from 'react';
-// import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader/root';
-import { Route, Switch, Redirect, RouterChildContext } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { StaticRouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import { ErrorBoundary } from 'components';
 import { HomeContainer } from './pages/Home/HomeContainer';
@@ -33,8 +33,8 @@ const filmDetailsPageContainerConnected = filmDetailsPageConnector(
 
 interface Props {
     Router: React.ElementType,
-    location?: Location,
-    context?: RouterChildContext,
+    location?: string | object,
+    context?: StaticRouterContext,
     store: any
 }
 

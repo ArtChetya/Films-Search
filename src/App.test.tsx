@@ -1,10 +1,10 @@
-import { shallow } from 'enzyme/build';
-import React from 'react';
+import * as enzyme from 'enzyme';
+import * as React from 'react';
 import App from './App';
 
 describe('App component', () => {
     it('should be rendered correctly', () => {
-        const Router = () => {};
+        const Router  = () => (<div>Router</div>);
         const location = 'some-location';
         const context = { url: 'some-url' };
         const store = {
@@ -13,7 +13,7 @@ describe('App component', () => {
             subscribe: jest.fn()
         };
 
-        const component = shallow(
+        const component = enzyme.shallow(
             <App
                 Router={Router}
                 location={location}

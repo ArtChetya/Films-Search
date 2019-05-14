@@ -1,7 +1,9 @@
 module.exports = {
     moduleFileExtensions: [
         "js",
-        "jsx"
+        "jsx",
+        "ts",
+        "tsx"
     ],
     moduleDirectories: [
         "node_modules",
@@ -20,7 +22,7 @@ module.exports = {
     setupFilesAfterEnv: ["<rootDir>/src/setupTests.js"],
     coverageReporters: ["json", "html"],
     collectCoverageFrom: [
-        'src/**/*.{js,jsx}',
+        'src/**/*.{js,jsx,ts,tsx}',
         '!src/index.tsx',
         '!src/configureStore.js',
         '!**/node_modules/**',
