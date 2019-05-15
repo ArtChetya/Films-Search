@@ -1,13 +1,13 @@
+import { ErrorBoundary } from 'components';
 import * as React from 'react';
 import { hot } from 'react-hot-loader/root';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { StaticRouterContext } from 'react-router';
 import { Provider } from 'react-redux';
-import { ErrorBoundary } from 'components';
-import { HomeContainer } from './pages/Home/HomeContainer';
+import { StaticRouterContext } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { filmDetailsPageConnector } from './pages/FilmDetailsPage/FilmDetailsPageConnector';
 import { FilmDetailsPageContainer } from './pages/FilmDetailsPage/FilmDetailsPageContainer';
 import { homeConnector } from './pages/Home/HomeConnector';
-import { filmDetailsPageConnector } from './pages/FilmDetailsPage/FilmDetailsPageConnector';
+import { HomeContainer } from './pages/Home/HomeContainer';
 import { NotFound } from './pages/NotFound';
 
 const HomeContainerConnected = homeConnector(HomeContainer);
@@ -31,25 +31,30 @@ const filmDetailsPageContainerConnected = filmDetailsPageConnector(
 //     context: null
 // };
 
-interface Props {
-    Router: React.ElementType,
-    location?: string | object,
-    context?: StaticRouterContext,
-    store: any
+interface IAppProps {
+    Router: React.ElementType;
+    location?: string | object;
+    context?: StaticRouterContext;
+    store: any;
 }
 
-function App({ Router, location, context, store }: Props) {
+const App: React.FunctionComponent<IAppProps> = ({
+    Router,
+    location,
+    context,
+    store
+}) => {
     return (
         <Provider store={store}>
             <ErrorBoundary>
                 <Router location={location} context={context}>
                     <Switch>
                         <Route
-                            exact
+                            exact={true}
                             path="/"
                             component={HomeContainerConnected}
                         />
-                        <Redirect exact from="/search" to="/" />
+                        <Redirect exact={true} from="/search" to="/" />
                         <Route
                             path="/movie/:id"
                             component={filmDetailsPageContainerConnected}
@@ -65,6 +70,6 @@ function App({ Router, location, context, store }: Props) {
             </ErrorBoundary>
         </Provider>
     );
-}
+};
 
 export default hot(App);

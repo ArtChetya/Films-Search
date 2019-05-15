@@ -1,10 +1,27 @@
-import { createAction } from 'redux-actions';
-import { httpService, API_CONSTANTS } from 'services';
+import { API_CONSTANTS, httpService } from 'services';
+import { IFilmDetails } from '../filmDetails';
 import { serverSideRenderedFlag } from '../serverSideRendered';
+import { FILMS, FILMS_LOADING, FilmsActionTypes } from './types';
 
-export const filmsLoading = createAction('FILMS_LOADING', flag => ({ flag }));
-export const films = createAction('FILMS', data => ({ data }));
+export const filmsLoading = (flag: boolean): FilmsActionTypes => {
+    return {
+        type: FILMS_LOADING,
+        payload: {
+            flag
+        }
+    };
+};
 
+export const films = (data: IFilmDetails[]): FilmsActionTypes => {
+    return {
+        type: FILMS,
+        payload: {
+            data
+        }
+    };
+};
+
+// @ts-ignore
 export const fetchFilms = () => async (dispatch, getState) => {
     dispatch(filmsLoading(true));
 
@@ -29,12 +46,14 @@ export const fetchFilms = () => async (dispatch, getState) => {
     }
 };
 
+// @ts-ignore
 export const fetchFilmsIfNeeded = () => async (dispatch, getState) => {
     const { serverSideRenderedFlag: ssrFlag } = getState();
 
     if (!ssrFlag) {
         await dispatch(fetchFilms());
     } else {
+        // @ts-ignore
         dispatch(serverSideRenderedFlag(false));
     }
 };

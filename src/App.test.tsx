@@ -4,7 +4,7 @@ import App from './App';
 
 describe('App component', () => {
     it('should be rendered correctly', () => {
-        const Router  = () => (<div>Router</div>);
+        const Router = () => <div>Router</div>;
         const location = 'some-location';
         const context = { url: 'some-url' };
         const store = {

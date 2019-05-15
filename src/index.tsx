@@ -7,6 +7,7 @@ import { configureStore } from './configureStore';
 // @ts-ignore
 const store = configureStore(window.PRELOADED_STATE);
 
-hydrate(<App Router={BrowserRouter} store={store} />,
+hydrate(
+    <App Router={BrowserRouter} store={store} />,
     document.getElementById('app')
 );

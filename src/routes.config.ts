@@ -1,18 +1,19 @@
-import { homeConnector } from './pages/Home/HomeConnector';
-import { HomeContainer } from './pages/Home/HomeContainer';
+import { RouteConfig } from 'react-router-config';
 import { filmDetailsPageConnector } from './pages/FilmDetailsPage/FilmDetailsPageConnector';
 import { FilmDetailsPageContainer } from './pages/FilmDetailsPage/FilmDetailsPageContainer';
+import { homeConnector } from './pages/Home/HomeConnector';
+import { HomeContainer } from './pages/Home/HomeContainer';
 import { NotFound } from './pages/NotFound';
 
-const HomeContainerConnected = homeConnector(HomeContainer);
+const homeContainerConnected = homeConnector(HomeContainer);
 const filmDetailsPageContainerConnected = filmDetailsPageConnector(
     FilmDetailsPageContainer
 );
 
-export const routes = [
+export const routes: RouteConfig[] = [
     {
         path: '/',
-        component: HomeContainerConnected,
+        component: homeContainerConnected,
         exact: true
     },
     {
@@ -21,7 +22,7 @@ export const routes = [
     },
     {
         path: '/search/:query',
-        component: HomeContainerConnected,
+        component: homeContainerConnected,
         exact: true
     },
     {

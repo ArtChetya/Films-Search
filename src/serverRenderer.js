@@ -98,7 +98,6 @@ export default function serverRenderer() {
                 </JssProvider>
             );
 
-        console.log(context);
         if (context.url) {
             res.writeHead(302, {
                 Location: context.url

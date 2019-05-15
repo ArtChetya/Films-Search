@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-airbnb",
+    "tslint-react",
+    "tslint-eslint-rules",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "**/*.js"
+    ]
+  },
+  "rules": {
+    "no-implicit-dependencies": [
+      true,
+      ["components", "features", "services", "utils", "react-router"],
+      "dev"
+    ],
+    "no-submodule-imports": [true, "react-hot-loader/root"],
+    "no-console": {
+      "severity": "warning"
+    },
+    "variable-name": [true, "allow-pascal-case"],
+    "object-literal-sort-keys": false
+  }
+}
