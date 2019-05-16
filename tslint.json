@@ -19,7 +19,14 @@
       ["components", "features", "services", "utils", "react-router"],
       "dev"
     ],
-    "no-submodule-imports": [true, "react-hot-loader/root"],
+    "no-submodule-imports": [
+      true,
+      "react-hot-loader/root",
+      "features/searchParams",
+      "features/films",
+      "features/filmDetails",
+      "features/serverSideRendered"
+    ],
     "no-console": {
       "severity": "warning"
     },

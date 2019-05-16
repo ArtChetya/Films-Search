@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
+import { AppState } from '../../configureStore';
 
-const mapStateToProps = ({ searchParams: { search, searchBy } }) => ({
+const mapStateToProps = ({ searchParams: { search, searchBy } }: AppState) => ({
     search,
     searchBy
 });

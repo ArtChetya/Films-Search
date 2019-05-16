@@ -18,6 +18,10 @@
     "paths": {
       "components": ["src/components"],
       "features": ["src/features"],
+      "features/searchParams": ["src/features/searchParams"],
+      "features/films": ["src/features/films"],
+      "features/filmDetails": ["src/features/filmDetails"],
+      "features/serverSideRendered": ["src/features/serverSideRendered"],
       "services": ["src/services"],
       "utils": ["src/utils"]
     }

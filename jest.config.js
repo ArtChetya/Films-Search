@@ -24,7 +24,7 @@ module.exports = {
     collectCoverageFrom: [
         'src/**/*.{js,jsx,ts,tsx}',
         '!src/index.tsx',
-        '!src/configureStore.js',
+        '!src/configureStore.ts',
         '!**/node_modules/**',
         '!**/vendor/**'
     ],

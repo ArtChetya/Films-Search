@@ -36,7 +36,7 @@ export const HomeContainer = ({
     const onSort = id => {
         if (id !== sortBy) {
             setSortBy(id);
-            fetchFilms();
+            fetchFilmsIfNeeded();
         }
     };
 

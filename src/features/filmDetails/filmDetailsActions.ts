@@ -1,4 +1,6 @@
+import { ThunkDispatch } from 'redux-thunk';
 import { API_CONSTANTS, httpService } from 'services';
+import { AppState } from '../../configureStore';
 import { fetchFilms } from '../films';
 import { searchField } from '../searchParams';
 import { serverSideRenderedFlag } from '../serverSideRendered';
@@ -33,8 +35,10 @@ export const clearFilmDetails = (): FilmDetailsActionTypes => {
         type: CLEAR_FILM_DETAILS
     };
 };
-// @ts-ignore
-export const fetchFilmDetails = (filmId: number) => async dispatch => {
+
+export const fetchFilmDetails = (filmId: number) => async (
+    dispatch: ThunkDispatch<AppState, undefined, any>
+) => {
     dispatch(filmDetailsLoading(true));
 
     try {
@@ -48,10 +52,9 @@ export const fetchFilmDetails = (filmId: number) => async dispatch => {
     }
 };
 
-// @ts-ignore
 export const fetchFilmDetailsInfo = (filmId: number) => async (
-    dispatch,
-    getState
+    dispatch: ThunkDispatch<AppState, undefined, any>,
+    getState: () => AppState
 ) => {
     await dispatch(fetchFilmDetails(filmId));
 
@@ -62,22 +65,19 @@ export const fetchFilmDetailsInfo = (filmId: number) => async (
 
     const genre = details.genres[0];
 
-    // @ts-ignore
     dispatch(searchField(genre));
     await dispatch(fetchFilms());
 };
 
-// @ts-ignore
 export const fetchFilmDetailsInfoIfNeeded = (filmId: number) => async (
-    dispatch,
-    getState
+    dispatch: ThunkDispatch<AppState, undefined, any>,
+    getState: () => AppState
 ) => {
     const { serverSideRenderedFlag: ssrFlag } = getState();
 
     if (!ssrFlag) {
         await dispatch(fetchFilmDetailsInfo(filmId));
     } else {
-        // @ts-ignore
         dispatch(serverSideRenderedFlag(false));
     }
 };

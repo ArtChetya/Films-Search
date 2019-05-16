@@ -1,9 +1,9 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { searchParams } from 'features/searchParams';
-import { filmsInfo } from 'features/films';
 import { filmDetailsInfo } from 'features/filmDetails';
+import { filmsInfo } from 'features/films';
+import { searchParams } from 'features/searchParams';
 import { serverSideRenderedFlagReducer } from 'features/serverSideRendered';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import reduxThunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     searchParams,
@@ -11,17 +11,19 @@ const rootReducer = combineReducers({
     filmDetailsInfo,
     serverSideRenderedFlag: serverSideRenderedFlagReducer
 });
-/* eslint-disable no-underscore-dangle */
+
+export type AppState = ReturnType<typeof rootReducer>;
+
 const composeEnhancers =
     (typeof window !== 'undefined' &&
+        // @ts-ignore
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
     compose;
-/* eslint-enable no-underscore-dangle */
 
-export const configureStore = initialState => {
+export const configureStore = (initialState: AppState) => {
     return createStore(
         rootReducer,
         initialState,
-        composeEnhancers(applyMiddleware(thunkMiddleware))
+        composeEnhancers(applyMiddleware(reduxThunk))
     );
 };
