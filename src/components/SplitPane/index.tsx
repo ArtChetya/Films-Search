@@ -1,10 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import grey from '@material-ui/core/colors/grey';
 import Grid from '@material-ui/core/Grid';
+import * as React from 'react';
 import { AppBar } from '../AppBar';
 
-export const SplitPane = ({ left, right }) => {
+interface ISplitPaneProps {
+    left?: React.ReactNode;
+    right?: React.ReactNode;
+}
+
+export const SplitPane: React.FunctionComponent<ISplitPaneProps> = ({
+    left,
+    right
+}) => {
     return (
         <AppBar bgcolor={grey[200]} minheight="20px">
             <Grid container alignItems="center">
@@ -18,14 +25,4 @@ export const SplitPane = ({ left, right }) => {
             </Grid>
         </AppBar>
     );
-};
-
-SplitPane.propTypes = {
-    left: PropTypes.node,
-    right: PropTypes.node
-};
-
-SplitPane.defaultProps = {
-    left: false,
-    right: false
 };

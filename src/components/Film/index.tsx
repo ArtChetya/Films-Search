@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Card from '@material-ui/core/Card';
+import Card, { CardProps } from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid';
-import grey from '@material-ui/core/colors/grey';
+import CardMedia, { CardMediaProps } from '@material-ui/core/CardMedia';
 import Chip from '@material-ui/core/Chip';
+import grey from '@material-ui/core/colors/grey';
+import Grid from '@material-ui/core/Grid';
+import { TransformText } from 'components';
+import { IFilmDetails } from 'features/filmDetails';
+import * as React from 'react';
+import styledComponents from 'styled-components';
 import { releaseDateToYear } from 'utils';
-import { CardMedia } from '@material-ui/core';
-import { TransformText } from '../TransformText';
 import { Link } from '../Link';
 
-const StyledCard = styled(Card)`
+const StyledCard = styledComponents(Card)<CardProps>`
     && {
         height: 610px;
 
@@ -35,9 +35,9 @@ const StyledCard = styled(Card)`
             height: 480px;
         }
     }
-`;
+` as React.ComponentType<CardProps>;
 
-const StyledCardMedia = styled(CardMedia)`
+const StyledCardMedia = styledComponents(CardMedia)<CardMediaProps>`
     && {
         height: 400px;
         background-size: contain;
@@ -62,9 +62,13 @@ const StyledCardMedia = styled(CardMedia)`
             height: 360px;
         }
     }
-`;
+` as React.ComponentType<CardMediaProps>;
 
-export const Film = ({ film }) => {
+interface IFilmProps {
+    film: IFilmDetails;
+}
+
+export const Film: React.FunctionComponent<IFilmProps> = ({ film }) => {
     const year = releaseDateToYear(film.release_date);
 
     return (
@@ -102,8 +106,4 @@ export const Film = ({ film }) => {
             </StyledCard>
         </Link>
     );
-};
-
-Film.propTypes = {
-    film: PropTypes.object.isRequired
 };

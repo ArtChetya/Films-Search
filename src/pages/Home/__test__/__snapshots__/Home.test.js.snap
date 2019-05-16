@@ -12,7 +12,6 @@ exports[`Home component should be rendered correctly 1`] = `
         onSearch={[MockFunction]}
       />
     }
-    hasSearch={false}
   />
   <SplitPane
     left={<Connect(FilmsFound) />}
@@ -54,7 +53,6 @@ exports[`Home component should be rendered correctly with loading 1`] = `
         onSearch={[MockFunction]}
       />
     }
-    hasSearch={false}
   />
   <SplitPane
     left={<Connect(FilmsFound) />}
@@ -78,10 +76,7 @@ exports[`Home component should be rendered correctly with loading 1`] = `
     }
   />
   <PageContentWrapper>
-    <Loader
-      loaderColor="#ec407a"
-      size="90px"
-    />
+    <Loader />
   </PageContentWrapper>
   <Footer />
 </PageGrid>

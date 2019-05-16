@@ -50,11 +50,11 @@ const App: React.FunctionComponent<IAppProps> = ({
                 <Router location={location} context={context}>
                     <Switch>
                         <Route
-                            exact={true}
+                            exact
                             path="/"
                             component={HomeContainerConnected}
                         />
-                        <Redirect exact={true} from="/search" to="/" />
+                        <Redirect exact from="/search" to="/" />
                         <Route
                             path="/movie/:id"
                             component={filmDetailsPageContainerConnected}

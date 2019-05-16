@@ -7,7 +7,7 @@ exports[`Link component should be rendered correctly 1`] = `
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "Link-sc-1532py-0",
+        "componentId": "Link-sc-1w86vi8-0",
         "isStatic": true,
         "rules": Array [
           "&&{color:initial;text-decoration:none;}",
@@ -16,7 +16,7 @@ exports[`Link component should be rendered correctly 1`] = `
       "displayName": "Link",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "Link-sc-1532py-0",
+      "styledComponentId": "Link-sc-1w86vi8-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],

@@ -8,7 +8,7 @@ exports[`ColorText component should be rendered correctly 1`] = `
       "Naked": [Function],
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "ColorText-sc-1lve5qk-0",
+        "componentId": "ColorText-llbtxr-0",
         "isStatic": false,
         "rules": Array [
           "&&{color:",
@@ -382,11 +382,8 @@ exports[`ColorText component should be rendered correctly 1`] = `
         "name": "MuiTypography",
         "withTheme": true,
       },
-      "propTypes": Object {
-        "fontcolor": [Function],
-      },
       "render": [Function],
-      "styledComponentId": "ColorText-sc-1lve5qk-0",
+      "styledComponentId": "ColorText-llbtxr-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],

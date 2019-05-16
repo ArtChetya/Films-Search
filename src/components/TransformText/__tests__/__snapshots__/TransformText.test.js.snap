@@ -8,7 +8,7 @@ exports[`TransformText component should be rendered correctly 1`] = `
       "Naked": [Function],
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "TransformText-sc-1gwycye-0",
+        "componentId": "TransformText-sc-1kpj2cx-0",
         "isStatic": false,
         "rules": Array [
           "&&{color:",
@@ -21,7 +21,7 @@ exports[`TransformText component should be rendered correctly 1`] = `
       },
       "displayName": "TransformText",
       "foldedComponentIds": Array [
-        "ColorText-sc-1lve5qk-0",
+        "ColorText-llbtxr-0",
       ],
       "options": Object {
         "defaultTheme": Object {
@@ -387,11 +387,8 @@ exports[`TransformText component should be rendered correctly 1`] = `
         "name": "MuiTypography",
         "withTheme": true,
       },
-      "propTypes": Object {
-        "transform": [Function],
-      },
       "render": [Function],
-      "styledComponentId": "TransformText-sc-1gwycye-0",
+      "styledComponentId": "TransformText-sc-1kpj2cx-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],

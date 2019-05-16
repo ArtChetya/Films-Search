@@ -45,7 +45,6 @@ exports[`FilmDetailsPage component should be rendered correctly 1`] = `
         </strong>
       </ForwardRef>
     }
-    right={false}
   />
   <PageContentWrapper>
     <Connect(FilmsList) />
@@ -61,22 +60,15 @@ exports[`FilmDetailsPage component should be rendered correctly with film detail
   wrap="nowrap"
 >
   <Header
-    content={
-      <Loader
-        loaderColor="#ec407a"
-        size="90px"
-      />
-    }
+    content={<Loader />}
     hasSearch={true}
   />
   <SplitPane
     left={
       <Loader
-        loaderColor="#ec407a"
         size="30px"
       />
     }
-    right={false}
   />
   <PageContentWrapper>
     <Connect(FilmsList) />
@@ -92,28 +84,18 @@ exports[`FilmDetailsPage component should be rendered correctly with films by ge
   wrap="nowrap"
 >
   <Header
-    content={
-      <Loader
-        loaderColor="#ec407a"
-        size="90px"
-      />
-    }
+    content={<Loader />}
     hasSearch={true}
   />
   <SplitPane
     left={
       <Loader
-        loaderColor="#ec407a"
         size="30px"
       />
     }
-    right={false}
   />
   <PageContentWrapper>
-    <Loader
-      loaderColor="#ec407a"
-      size="90px"
-    />
+    <Loader />
   </PageContentWrapper>
   <Footer />
 </PageGrid>

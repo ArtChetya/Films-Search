@@ -8,7 +8,7 @@ exports[`ColorButton component should be rendered correctly 1`] = `
       "Naked": [Function],
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "ColorButton-sc-3irpx1-0",
+        "componentId": "ColorButton-d357tk-0",
         "isStatic": false,
         "rules": Array [
           "&&{color:",
@@ -387,12 +387,8 @@ exports[`ColorButton component should be rendered correctly 1`] = `
         },
         "name": "MuiButton",
       },
-      "propTypes": Object {
-        "backgroundcolor": [Function],
-        "fontcolor": [Function],
-      },
       "render": [Function],
-      "styledComponentId": "ColorButton-sc-3irpx1-0",
+      "styledComponentId": "ColorButton-d357tk-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],

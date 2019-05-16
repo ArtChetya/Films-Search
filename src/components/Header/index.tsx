@@ -1,20 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import pink from '@material-ui/core/colors/pink';
-import Grid from '@material-ui/core/Grid';
-import { ColorButton } from '../ColorButton';
+import Grid, { GridProps } from '@material-ui/core/Grid';
+import { ColorButton, ColorText } from 'components';
+import * as React from 'react';
+import styledComponents from 'styled-components';
 import { AppBar } from '../AppBar';
-import { ColorText } from '../ColorText';
 import { Link } from '../Link';
 
-const GridMarginTop = styled(Grid)`
+const GridMarginTop = styledComponents(Grid)<GridProps>`
     && {
         margin-top: 15px;
     }
-`;
+` as React.ComponentType<GridProps>;
 
-export const Header = ({ hasSearch, content }) => {
+interface IHeaderProps {
+    hasSearch?: boolean;
+    content?: React.ReactNode | null;
+}
+
+export const Header: React.FunctionComponent<IHeaderProps> = ({
+    hasSearch = false,
+    content = null
+}) => {
     return (
         <AppBar opacity={0.9}>
             <Grid container justify="space-between" alignItems="center">
@@ -42,14 +48,4 @@ export const Header = ({ hasSearch, content }) => {
             </Grid>
         </AppBar>
     );
-};
-
-Header.propTypes = {
-    hasSearch: PropTypes.bool,
-    content: PropTypes.node
-};
-
-Header.defaultProps = {
-    hasSearch: false,
-    content: false
 };

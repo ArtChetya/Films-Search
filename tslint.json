@@ -20,17 +20,13 @@
       "dev"
     ],
     "no-submodule-imports": [
-      true,
-      "react-hot-loader/root",
-      "features/searchParams",
-      "features/films",
-      "features/filmDetails",
-      "features/serverSideRendered"
+      false
     ],
     "no-console": {
       "severity": "warning"
     },
     "variable-name": [true, "allow-pascal-case"],
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "jsx-boolean-value": [true, "never"]
   }
 }

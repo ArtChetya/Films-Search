@@ -1,27 +1,33 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import grey from '@material-ui/core/colors/grey';
-import Grid from '@material-ui/core/Grid';
+import Grid, { GridProps } from '@material-ui/core/Grid';
+import { ColorText, IColorTextProps } from 'components';
+import { IFilmDetails } from 'features/filmDetails';
+import * as React from 'react';
+import styledComponents from 'styled-components';
 import { Film } from '../Film';
-import { ColorText } from '../ColorText';
 
-const StyledList = styled(Grid)`
+const StyledList = styledComponents(Grid)<GridProps>`
     && {
         list-style-type: none;
         margin: 10px 0;
         padding: 0;
     }
-`;
+` as React.ComponentType<GridProps>;
 
-const StyledColorText = styled(ColorText)`
+const StyledColorText = styledComponents(ColorText)<IColorTextProps>`
     && {
         font-size: 20px;
         margin-top: 20px;
     }
-`;
+` as React.ComponentType<IColorTextProps>;
 
-export const FilmsList = ({ films }) => {
+interface IFilmsListProps {
+    films: IFilmDetails[];
+}
+
+export const FilmsList: React.FunctionComponent<IFilmsListProps> = ({
+    films
+}) => {
     return (
         <>
             {films.length ? (
@@ -47,8 +53,4 @@ export const FilmsList = ({ films }) => {
             )}
         </>
     );
-};
-
-FilmsList.propTypes = {
-    films: PropTypes.array.isRequired
 };
