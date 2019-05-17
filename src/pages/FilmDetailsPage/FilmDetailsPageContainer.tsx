@@ -1,6 +1,9 @@
 import { Loader } from 'components';
 import { fetchFilmDetailsInfo } from 'features/filmDetails';
-import { params as paramsAction } from 'features/searchParams';
+import {
+    ISearchParamsState,
+    params as paramsAction
+} from 'features/searchParams';
 import { serverSideRenderedFlag } from 'features/serverSideRendered';
 import React, { FunctionComponent, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
@@ -32,7 +35,7 @@ export const FilmDetailsPageContainer: FunctionComponent<
     clearFilmDetails
 }) => {
     useEffect(() => {
-        const defaultParams = {
+        const defaultParams: ISearchParamsState = {
             search: '',
             searchBy: 'genres',
             sortBy: 'release_date',
@@ -70,7 +73,7 @@ export const FilmDetailsPageContainer: FunctionComponent<
 };
 
 FilmDetailsPageContainer.onInit = (store, match) => {
-    const defaultParams = {
+    const defaultParams: ISearchParamsState = {
         search: '',
         searchBy: 'genres',
         sortBy: 'release_date',

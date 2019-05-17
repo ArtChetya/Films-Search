@@ -1,9 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { ColorButton, TransformText } from 'components';
+import React, { FunctionComponent } from 'react';
+import { IFilterConfig, IOption } from '../../types';
 
-export const FilterBy = ({
+interface IFilterByProps {
+    config: IFilterConfig;
+    options: IOption[];
+    selectedOptionId: string;
+    onOptionChange: (id: string) => void;
+}
+
+export const FilterBy: FunctionComponent<IFilterByProps> = ({
     config,
     options,
     selectedOptionId,
@@ -48,11 +55,4 @@ export const FilterBy = ({
             ))}
         </Grid>
     );
-};
-
-FilterBy.propTypes = {
-    config: PropTypes.object.isRequired,
-    options: PropTypes.array.isRequired,
-    selectedOptionId: PropTypes.string.isRequired,
-    onOptionChange: PropTypes.func.isRequired
 };

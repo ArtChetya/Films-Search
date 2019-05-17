@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import pink from '@material-ui/core/colors/pink';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+import TextField, { TextFieldProps } from '@material-ui/core/TextField';
 import { ColorButton, TransformText } from 'components';
+import React, {
+    ComponentType,
+    FunctionComponent,
+    SyntheticEvent,
+    useEffect,
+    useState
+} from 'react';
+import styledComponents from 'styled-components';
 import { SearchBy } from '..';
+import { IOption } from '../../types';
 
-const SearchField = styled(TextField)`
+const SearchField = styledComponents(TextField)<TextFieldProps>`
     && {
         margin: 8px 0;
 
@@ -19,19 +25,29 @@ const SearchField = styled(TextField)`
             color: #fff;
         }
     }
-`;
+` as ComponentType<TextFieldProps>;
 
-export const SearchForm = ({ search, searchBy, onSearch }) => {
-    const [searchField, setSearchField] = useState(search);
+interface ISearchFormProps {
+    search: string;
+    searchBy: string;
+    onSearch: (searchField: string, searchById: string) => void;
+}
 
-    const searchByOptionsList = [
+export const SearchForm: FunctionComponent<ISearchFormProps> = ({
+    search,
+    searchBy,
+    onSearch
+}) => {
+    const [searchField, setSearchField] = useState<string>(search);
+
+    const searchByOptionsList: IOption[] = [
         { id: 'title', label: 'Title' },
         { id: 'genres', label: 'Genre' }
     ];
-    const [searchByOptions] = useState(searchByOptionsList);
-    const [searchById, setSearchById] = useState(searchBy);
+    const [searchByOptions] = useState<IOption[]>(searchByOptionsList);
+    const [searchById, setSearchById] = useState<string>(searchBy);
 
-    const onSubmit = event => {
+    const onSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
         onSearch(searchField, searchById);
     };
@@ -81,10 +97,4 @@ export const SearchForm = ({ search, searchBy, onSearch }) => {
             </Grid>
         </form>
     );
-};
-
-SearchForm.propTypes = {
-    search: PropTypes.string.isRequired,
-    searchBy: PropTypes.string.isRequired,
-    onSearch: PropTypes.func.isRequired
 };

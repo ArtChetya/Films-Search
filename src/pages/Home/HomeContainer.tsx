@@ -1,12 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { queryToParams } from 'utils';
-import { params as paramsAction } from 'features/searchParams';
 import { fetchFilms } from 'features/films';
+import {
+    ISearchParamsState,
+    params as paramsAction
+} from 'features/searchParams';
 import { serverSideRenderedFlag } from 'features/serverSideRendered';
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import { RouteComponentProps } from 'react-router';
+import { queryToParams } from 'utils';
 import { Home } from '.';
+import { IHomePageDispatchProps, IHomePageStateProps } from './HomeConnector';
+import { IOption } from './types';
 
-export const HomeContainer = ({
+interface IParams {
+    query: string;
+}
+
+interface IHomeContainerProps
+    extends RouteComponentProps<IParams>,
+        IHomePageStateProps,
+        IHomePageDispatchProps {}
+
+export const HomeContainer: FunctionComponent<IHomeContainerProps> & {
+    onInit: (store: any, match: any) => any;
+} = ({
     match,
     history,
     sortBy,
@@ -15,13 +31,13 @@ export const HomeContainer = ({
     setParams,
     isFilmsLoading
 }) => {
-    const sortByOptionsList = [
+    const sortByOptionsList: IOption[] = [
         { id: 'release_date', label: 'release date' },
         { id: 'vote_average', label: 'rating' }
     ];
-    const [sortByOptions] = useState(sortByOptionsList);
+    const [sortByOptions] = useState<IOption[]>(sortByOptionsList);
 
-    const onSearch = (search, searchBy) => {
+    const onSearch = (search: string, searchBy: string) => {
         const isByTitleSearch = searchBy === 'title';
 
         const searchVal = isByTitleSearch ? search : search.split(' ')[0];
@@ -33,7 +49,7 @@ export const HomeContainer = ({
         );
     };
 
-    const onSort = id => {
+    const onSort = (id: string) => {
         if (id !== sortBy) {
             setSortBy(id);
             fetchFilmsIfNeeded();
@@ -72,7 +88,7 @@ export const HomeContainer = ({
 
 HomeContainer.onInit = (store, match) => {
     const queryParams = queryToParams(decodeURI(match.params.query));
-    const defaultParams = {
+    const defaultParams: ISearchParamsState = {
         search: '',
         searchBy: 'title',
         sortBy: 'release_date',
@@ -90,14 +106,4 @@ HomeContainer.onInit = (store, match) => {
     store.dispatch(serverSideRenderedFlag(true));
 
     return store.dispatch(fetchFilms());
-};
-
-HomeContainer.propTypes = {
-    match: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    sortBy: PropTypes.string.isRequired,
-    setSortBy: PropTypes.func.isRequired,
-    fetchFilmsIfNeeded: PropTypes.func.isRequired,
-    setParams: PropTypes.func.isRequired,
-    isFilmsLoading: PropTypes.bool.isRequired
 };

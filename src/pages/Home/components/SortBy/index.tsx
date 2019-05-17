@@ -1,11 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
+import pink from '@material-ui/core/colors/pink';
+import React, { FunctionComponent } from 'react';
+import { IFilterConfig, IOption } from '../../types';
 import { FilterBy } from '../FilterBy';
 
-export const SortBy = props => {
-    const sortByConfig = {
+interface ISortByProps {
+    options: IOption[];
+    selectedOptionId: string;
+    onOptionChange: (id: string) => void;
+}
+
+export const SortBy: FunctionComponent<ISortByProps> = props => {
+    const sortByConfig: IFilterConfig = {
         title: 'Sort by',
         titleVariant: 'subtitle2',
         activeColor: pink[400],
@@ -18,10 +24,4 @@ export const SortBy = props => {
     };
 
     return <FilterBy {...props} config={sortByConfig} />;
-};
-
-SortBy.propTypes = {
-    options: PropTypes.array.isRequired,
-    selectedOptionId: PropTypes.string.isRequired,
-    onOptionChange: PropTypes.func.isRequired
 };

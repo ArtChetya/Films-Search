@@ -1,23 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {
-    Header,
-    Footer,
-    SplitPane,
-    PageGrid,
     FilmsList,
+    Footer,
+    Header,
     Loader,
-    PageContentWrapper
+    PageContentWrapper,
+    PageGrid,
+    SplitPane
 } from 'components';
 import { filmsConnector } from 'features/films';
 import { searchParamsConnector } from 'features/searchParams';
-import { SearchForm, SortBy, FilmsFound } from './components';
+import React, { FunctionComponent } from 'react';
+import { FilmsFound, SearchForm, SortBy } from './components';
+import { IOption } from './types';
 
 const FilmsListConnected = filmsConnector(FilmsList);
 const FilmsFoundConnected = filmsConnector(FilmsFound);
 const SearchFormConnected = searchParamsConnector(SearchForm);
 
-export const Home = ({
+interface IHomeProps {
+    sortByOptions: IOption[];
+    sortById: string;
+    setSortById: (id: string) => void;
+    onSearch: (searchField: string, searchById: string) => void;
+    isLoading: boolean;
+}
+
+export const Home: FunctionComponent<IHomeProps> = ({
     sortByOptions,
     sortById,
     setSortById,
@@ -46,12 +54,4 @@ export const Home = ({
             <Footer />
         </PageGrid>
     );
-};
-
-Home.propTypes = {
-    sortByOptions: PropTypes.array.isRequired,
-    sortById: PropTypes.string.isRequired,
-    setSortById: PropTypes.func.isRequired,
-    onSearch: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired
 };

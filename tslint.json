@@ -28,6 +28,7 @@
     "variable-name": [true, "allow-pascal-case"],
     "object-literal-sort-keys": false,
     "jsx-boolean-value": [true, "never"],
-    "import-name": false
+    "import-name": false,
+    "jsx-no-lambda": false
   }
 }

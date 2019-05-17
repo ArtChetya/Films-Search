@@ -1,11 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
+import pink from '@material-ui/core/colors/pink';
+import React, { FunctionComponent } from 'react';
+import { IFilterConfig, IOption } from '../../types';
 import { FilterBy } from '../FilterBy';
 
-export const SearchBy = props => {
-    const searchByConfig = {
+interface ISearchByProps {
+    options: IOption[];
+    selectedOptionId: string;
+    onOptionChange: (id: string) => void;
+}
+
+export const SearchBy: FunctionComponent<ISearchByProps> = props => {
+    const searchByConfig: IFilterConfig = {
         title: 'Search By',
         titleVariant: 'body1',
         activeColor: '#fff',
@@ -18,10 +24,4 @@ export const SearchBy = props => {
     };
 
     return <FilterBy {...props} config={searchByConfig} />;
-};
-
-SearchBy.propTypes = {
-    options: PropTypes.array.isRequired,
-    selectedOptionId: PropTypes.string.isRequired,
-    onOptionChange: PropTypes.func.isRequired
 };

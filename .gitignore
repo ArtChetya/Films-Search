@@ -8,7 +8,6 @@
 *.7z
 *.exe
 dist
-webpack..
 
 ### Exclude env and editors folders
 .DS_Store

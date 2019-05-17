@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import grey from '@material-ui/core/colors/grey';
 import { ColorText } from 'components';
+import { IFilmDetails } from 'features/filmDetails';
+import React, { FunctionComponent } from 'react';
 
-export const FilmsFound = ({ films }) => {
+interface IFilmsFound {
+    films: IFilmDetails[];
+}
+
+export const FilmsFound: FunctionComponent<IFilmsFound> = ({ films }) => {
     return (
         <ColorText variant="subtitle2" fontcolor={grey[900]}>
             {films.length} movies found
         </ColorText>
     );
-};
-
-FilmsFound.propTypes = {
-    films: PropTypes.array.isRequired
 };
