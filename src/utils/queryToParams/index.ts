@@ -1,4 +1,4 @@
-export const queryToParams = query => {
+export const queryToParams = (query: string): object => {
     if (query === 'undefined' || !query || !query.length) {
         return {};
     }

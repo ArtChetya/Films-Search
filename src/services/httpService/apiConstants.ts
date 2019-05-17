@@ -3,7 +3,7 @@ export const API_CONSTANTS = {
         method: 'GET',
         url: 'movies'
     },
-    FILM_DETAILS: filmId => ({
+    FILM_DETAILS: (filmId: number | string) => ({
         method: 'GET',
         url: `movies/${filmId}`
     })
