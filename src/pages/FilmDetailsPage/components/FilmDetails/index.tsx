@@ -1,36 +1,42 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import pink from '@material-ui/core/colors/pink';
+import Chip, { ChipProps } from '@material-ui/core/Chip';
 import grey from '@material-ui/core/colors/grey';
 import lightGreen from '@material-ui/core/colors/lightGreen';
+import pink from '@material-ui/core/colors/pink';
 import Grid from '@material-ui/core/Grid';
-import Chip from '@material-ui/core/Chip';
-import { ColorText } from 'components';
+import { ColorText, IColorTextProps } from 'components';
+import { IFilmDetails } from 'features/filmDetails';
+import React, { ComponentType, ElementType, FunctionComponent } from 'react';
+import styledComponents from 'styled-components';
 import { releaseDateToYear } from 'utils';
 
-const Poster = styled.img`
+const Poster = styledComponents.img`
     && {
         width: 175px;
         height: auto;
     }
-`;
+` as ElementType<any>;
 
-const Rating = styled(Chip)`
+const Rating = styledComponents(Chip)<ChipProps>`
     && {
         color: ${lightGreen[400]};
         border-color: ${lightGreen[400]};
         margin-left: 15px;
     }
-`;
+` as ComponentType<ChipProps>;
 
-const MarginedText = styled(ColorText)`
+const MarginedText = styledComponents(ColorText)<IColorTextProps>`
     && {
         margin-left: 15px;
     }
-`;
+` as ComponentType<IColorTextProps>;
 
-export const FilmDetails = ({ filmDetails }) => {
+interface IFilmDetailsProps {
+    filmDetails: IFilmDetails;
+}
+
+export const FilmDetails: FunctionComponent<IFilmDetailsProps> = ({
+    filmDetails
+}) => {
     const year = releaseDateToYear(filmDetails.release_date);
 
     return (
@@ -52,28 +58,24 @@ export const FilmDetails = ({ filmDetails }) => {
                 </Grid>
 
                 <Grid item>
-                    <ColorText varaint="body1" fontcolor={grey[300]}>
+                    <ColorText variant="body1" fontcolor={grey[300]}>
                         {filmDetails.tagline}
                     </ColorText>
                 </Grid>
 
                 <Grid item container>
-                    <ColorText varaint="subtitle2">{year}</ColorText>
-                    <MarginedText varaint="subtitle2">
+                    <ColorText variant="subtitle2">{year}</ColorText>
+                    <MarginedText variant="subtitle2">
                         {filmDetails.runtime} min
                     </MarginedText>
                 </Grid>
 
                 <Grid item>
-                    <ColorText varaint="body1" fontcolor={grey[300]}>
+                    <ColorText variant="body1" fontcolor={grey[300]}>
                         {filmDetails.overview}
                     </ColorText>
                 </Grid>
             </Grid>
         </Grid>
     );
-};
-
-FilmDetails.propTypes = {
-    filmDetails: PropTypes.object.isRequired
 };

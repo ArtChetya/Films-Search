@@ -1,5 +1,5 @@
 import { ErrorBoundary } from 'components';
-import * as React from 'react';
+import React, { ElementType, FunctionComponent } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Provider } from 'react-redux';
 import { StaticRouterContext } from 'react-router';
@@ -15,30 +15,14 @@ const filmDetailsPageContainerConnected = filmDetailsPageConnector(
     FilmDetailsPageContainer
 );
 
-// App.propTypes = {
-//     Router: PropTypes.func.isRequired,
-//     location: PropTypes.string,
-//     context: PropTypes.shape({
-//         url: PropTypes.string
-//     }),
-//     store: PropTypes.shape({
-//         dispatch: PropTypes.func.isRequired,
-//         getState: PropTypes.func.isRequired
-//     }).isRequired
-// };
-// App.defaultProps = {
-//     location: null,
-//     context: null
-// };
-
 interface IAppProps {
-    Router: React.ElementType;
+    Router: ElementType;
     location?: string | object;
     context?: StaticRouterContext;
     store: any;
 }
 
-const App: React.FunctionComponent<IAppProps> = ({
+const App: FunctionComponent<IAppProps> = ({
     Router,
     location,
     context,

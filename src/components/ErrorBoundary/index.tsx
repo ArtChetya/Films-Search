@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 import styledComponents from 'styled-components';
 
 const Details = styledComponents.details`
@@ -8,15 +8,15 @@ const Details = styledComponents.details`
 `;
 
 interface IErrorBoundaryProps {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 interface IErrorBoundaryState {
     error: Error | null;
-    errorInfo: React.ErrorInfo | null;
+    errorInfo: ErrorInfo | null;
 }
 
-export class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends Component<
     IErrorBoundaryProps,
     IErrorBoundaryState
 > {
@@ -25,10 +25,7 @@ export class ErrorBoundary extends React.Component<
         this.state = { error: null, errorInfo: null };
     }
 
-    public componentDidCatch(
-        error: Error | null,
-        errorInfo: React.ErrorInfo | null
-    ) {
+    public componentDidCatch(error: Error | null, errorInfo: ErrorInfo | null) {
         this.setState({
             error,
             errorInfo

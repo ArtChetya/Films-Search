@@ -1,6 +1,6 @@
 import Button, { ButtonProps } from '@material-ui/core/Button';
 import pink from '@material-ui/core/colors/pink';
-import * as React from 'react';
+import React, { ComponentType } from 'react';
 import styledComponents from 'styled-components';
 
 export interface IColorButtonProps extends ButtonProps {
@@ -19,4 +19,4 @@ export const ColorButton = styledComponents(Button)<IColorButtonProps>`
             background-color: ${props => props.backgroundcolor || '#fff'};
         }
     }
-` as React.ComponentType<IColorButtonProps>;
+` as ComponentType<IColorButtonProps>;

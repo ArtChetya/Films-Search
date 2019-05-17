@@ -3,7 +3,7 @@ import CircularProgress, {
 } from '@material-ui/core/CircularProgress';
 import pink from '@material-ui/core/colors/pink';
 import Grid, { GridProps } from '@material-ui/core/Grid';
-import * as React from 'react';
+import React, { ComponentType, FunctionComponent } from 'react';
 import styledComponents from 'styled-components';
 
 const StyledGrid = styledComponents(Grid)<GridProps>`
@@ -11,7 +11,7 @@ const StyledGrid = styledComponents(Grid)<GridProps>`
         width: 100%;
         height: 100%;
     }
-` as React.ComponentType<GridProps>;
+` as ComponentType<GridProps>;
 
 export interface IProgressProps extends CircularProgressProps {
     size?: string;
@@ -24,14 +24,14 @@ const Progress = styledComponents(CircularProgress)<IProgressProps>`
         height: ${props => props.size || '90px'};
         color: ${props => props.loadercolor || pink[400]};
     }
-` as React.ComponentType<IProgressProps>;
+` as ComponentType<IProgressProps>;
 
 interface ILoaderProps {
     size?: string;
     loaderColor?: string;
 }
 
-export const Loader: React.FunctionComponent<ILoaderProps> = ({
+export const Loader: FunctionComponent<ILoaderProps> = ({
     size = '90px',
     loaderColor = pink[400]
 }) => {

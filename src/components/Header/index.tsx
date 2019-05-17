@@ -1,7 +1,7 @@
 import pink from '@material-ui/core/colors/pink';
 import Grid, { GridProps } from '@material-ui/core/Grid';
 import { ColorButton, ColorText } from 'components';
-import * as React from 'react';
+import React, { ComponentType, FunctionComponent, ReactNode } from 'react';
 import styledComponents from 'styled-components';
 import { AppBar } from '../AppBar';
 import { Link } from '../Link';
@@ -10,14 +10,14 @@ const GridMarginTop = styledComponents(Grid)<GridProps>`
     && {
         margin-top: 15px;
     }
-` as React.ComponentType<GridProps>;
+` as ComponentType<GridProps>;
 
 interface IHeaderProps {
     hasSearch?: boolean;
-    content?: React.ReactNode | null;
+    content?: ReactNode | null;
 }
 
-export const Header: React.FunctionComponent<IHeaderProps> = ({
+export const Header: FunctionComponent<IHeaderProps> = ({
     hasSearch = false,
     content = null
 }) => {

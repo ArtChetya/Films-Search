@@ -7,7 +7,7 @@ import {
     default as MaterialToolbar,
     ToolbarProps
 } from '@material-ui/core/Toolbar';
-import * as React from 'react';
+import React, { ComponentType, FunctionComponent, ReactNode } from 'react';
 import styledComponents from 'styled-components';
 
 export interface IMaterialAppBarProps extends AppBarProps {
@@ -23,7 +23,7 @@ export interface IAppBarProps {
     readonly bgcolor?: string;
     readonly opacity?: number;
     readonly minheight?: string;
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 const StyledMaterialAppBar = styledComponents(MaterialAppBar)<
@@ -37,16 +37,16 @@ const StyledMaterialAppBar = styledComponents(MaterialAppBar)<
         line-height: 1.8;
         flex-shrink: 0;
     }
-` as React.ComponentType<IMaterialAppBarProps>;
+` as ComponentType<IMaterialAppBarProps>;
 
 const StyledToolbar = styledComponents(MaterialToolbar)<IToolbarProps>`
     && {
         min-height: ${props => props.minheight || '36px'};
         padding: 0;
     }
-` as React.ComponentType<IToolbarProps>;
+` as ComponentType<IToolbarProps>;
 
-export const AppBar: React.FunctionComponent<IAppBarProps> = ({
+export const AppBar: FunctionComponent<IAppBarProps> = ({
     children,
     bgcolor = grey[900],
     opacity = 1,
@@ -57,10 +57,4 @@ export const AppBar: React.FunctionComponent<IAppBarProps> = ({
             <StyledToolbar minheight={minheight}> {children} </StyledToolbar>
         </StyledMaterialAppBar>
     );
-};
-
-AppBar.defaultProps = {
-    bgcolor: grey[900],
-    opacity: 1,
-    minheight: '36px'
 };

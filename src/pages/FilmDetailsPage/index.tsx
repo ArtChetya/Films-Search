@@ -1,22 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import grey from '@material-ui/core/colors/grey';
-import { filmsConnector } from 'features/films';
 import {
-    PageGrid,
-    Header,
-    SplitPane,
     ColorText,
-    PageContentWrapper,
-    Footer,
     FilmsList,
-    Loader
+    Footer,
+    Header,
+    Loader,
+    PageContentWrapper,
+    PageGrid,
+    SplitPane
 } from 'components';
+import { IFilmDetails } from 'features/filmDetails';
+import { filmsConnector } from 'features/films';
+import React, { FunctionComponent } from 'react';
 import { FilmDetails } from './components';
 
 const FilmsListConnected = filmsConnector(FilmsList);
 
-export const FilmDetailsPage = ({
+interface IFilmDetailsPageProps {
+    filmDetails: IFilmDetails;
+    isFilmDetailsLoading: boolean;
+    isFilmsLoading: boolean;
+}
+
+export const FilmDetailsPage: FunctionComponent<IFilmDetailsPageProps> = ({
     filmDetails,
     isFilmDetailsLoading,
     isFilmsLoading
@@ -57,10 +63,4 @@ export const FilmDetailsPage = ({
             <Footer />
         </PageGrid>
     );
-};
-
-FilmDetailsPage.propTypes = {
-    filmDetails: PropTypes.object.isRequired,
-    isFilmDetailsLoading: PropTypes.bool.isRequired,
-    isFilmsLoading: PropTypes.bool.isRequired
 };

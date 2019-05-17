@@ -2,8 +2,6 @@
 
 exports[`Header component should be rendered correctly with content prop 1`] = `
 <AppBar
-  bgcolor="#212121"
-  minheight="36px"
   opacity={0.9}
 >
   <WithStyles(Grid)
@@ -35,8 +33,6 @@ exports[`Header component should be rendered correctly with content prop 1`] = `
 
 exports[`Header component should be rendered correctly with hasSearch and content prop 1`] = `
 <AppBar
-  bgcolor="#212121"
-  minheight="36px"
   opacity={0.9}
 >
   <WithStyles(Grid)
@@ -82,8 +78,6 @@ exports[`Header component should be rendered correctly with hasSearch and conten
 
 exports[`Header component should be rendered correctly with hasSearch prop 1`] = `
 <AppBar
-  bgcolor="#212121"
-  minheight="36px"
   opacity={0.9}
 >
   <WithStyles(Grid)
@@ -121,8 +115,6 @@ exports[`Header component should be rendered correctly with hasSearch prop 1`] =
 
 exports[`Header component should be rendered correctly without props 1`] = `
 <AppBar
-  bgcolor="#212121"
-  minheight="36px"
   opacity={0.9}
 >
   <WithStyles(Grid)

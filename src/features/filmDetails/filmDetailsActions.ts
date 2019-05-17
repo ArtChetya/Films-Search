@@ -36,7 +36,7 @@ export const clearFilmDetails = (): FilmDetailsActionTypes => {
     };
 };
 
-export const fetchFilmDetails = (filmId: number) => async (
+export const fetchFilmDetails = (filmId: number | string) => async (
     dispatch: ThunkDispatch<AppState, undefined, any>
 ) => {
     dispatch(filmDetailsLoading(true));
@@ -52,7 +52,7 @@ export const fetchFilmDetails = (filmId: number) => async (
     }
 };
 
-export const fetchFilmDetailsInfo = (filmId: number) => async (
+export const fetchFilmDetailsInfo = (filmId: number | string) => async (
     dispatch: ThunkDispatch<AppState, undefined, any>,
     getState: () => AppState
 ) => {
@@ -69,7 +69,7 @@ export const fetchFilmDetailsInfo = (filmId: number) => async (
     await dispatch(fetchFilms());
 };
 
-export const fetchFilmDetailsInfoIfNeeded = (filmId: number) => async (
+export const fetchFilmDetailsInfoIfNeeded = (filmId: number | string) => async (
     dispatch: ThunkDispatch<AppState, undefined, any>,
     getState: () => AppState
 ) => {

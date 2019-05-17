@@ -6,7 +6,7 @@ import grey from '@material-ui/core/colors/grey';
 import Grid from '@material-ui/core/Grid';
 import { TransformText } from 'components';
 import { IFilmDetails } from 'features/filmDetails';
-import * as React from 'react';
+import React, { ComponentType, FunctionComponent } from 'react';
 import styledComponents from 'styled-components';
 import { releaseDateToYear } from 'utils';
 import { Link } from '../Link';
@@ -35,7 +35,7 @@ const StyledCard = styledComponents(Card)<CardProps>`
             height: 480px;
         }
     }
-` as React.ComponentType<CardProps>;
+` as ComponentType<CardProps>;
 
 const StyledCardMedia = styledComponents(CardMedia)<CardMediaProps>`
     && {
@@ -62,13 +62,13 @@ const StyledCardMedia = styledComponents(CardMedia)<CardMediaProps>`
             height: 360px;
         }
     }
-` as React.ComponentType<CardMediaProps>;
+` as ComponentType<CardMediaProps>;
 
 interface IFilmProps {
     film: IFilmDetails;
 }
 
-export const Film: React.FunctionComponent<IFilmProps> = ({ film }) => {
+export const Film: FunctionComponent<IFilmProps> = ({ film }) => {
     const year = releaseDateToYear(film.release_date);
 
     return (

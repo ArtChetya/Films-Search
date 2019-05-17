@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ComponentType } from 'react';
 import styledComponents from 'styled-components';
 
 export const PageContentWrapper = styledComponents.main`
@@ -8,4 +8,4 @@ export const PageContentWrapper = styledComponents.main`
         background-color: rgb(250, 250, 250);
         padding: 0 5%;
     }
-` as React.ComponentType<{}>;
+` as ComponentType<{}>;

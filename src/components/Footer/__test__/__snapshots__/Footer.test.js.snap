@@ -2,8 +2,6 @@
 
 exports[`Footer component should be rendered correctly 1`] = `
 <AppBar
-  bgcolor="#212121"
-  minheight="36px"
   opacity={0.9}
 >
   <ColorText

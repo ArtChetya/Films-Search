@@ -24,7 +24,8 @@
       "features/serverSideRendered": ["src/features/serverSideRendered"],
       "services": ["src/services"],
       "utils": ["src/utils"]
-    }
+    },
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules",

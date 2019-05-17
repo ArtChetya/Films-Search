@@ -2,7 +2,7 @@ import grey from '@material-ui/core/colors/grey';
 import Grid, { GridProps } from '@material-ui/core/Grid';
 import { ColorText, IColorTextProps } from 'components';
 import { IFilmDetails } from 'features/filmDetails';
-import * as React from 'react';
+import React, { ComponentType, FunctionComponent } from 'react';
 import styledComponents from 'styled-components';
 import { Film } from '../Film';
 
@@ -12,22 +12,20 @@ const StyledList = styledComponents(Grid)<GridProps>`
         margin: 10px 0;
         padding: 0;
     }
-` as React.ComponentType<GridProps>;
+` as ComponentType<GridProps>;
 
 const StyledColorText = styledComponents(ColorText)<IColorTextProps>`
     && {
         font-size: 20px;
         margin-top: 20px;
     }
-` as React.ComponentType<IColorTextProps>;
+` as ComponentType<IColorTextProps>;
 
 interface IFilmsListProps {
     films: IFilmDetails[];
 }
 
-export const FilmsList: React.FunctionComponent<IFilmsListProps> = ({
-    films
-}) => {
+export const FilmsList: FunctionComponent<IFilmsListProps> = ({ films }) => {
     return (
         <>
             {films.length ? (

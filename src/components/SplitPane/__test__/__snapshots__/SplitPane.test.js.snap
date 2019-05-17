@@ -4,7 +4,6 @@ exports[`SplitPane component should be rendered correctly 1`] = `
 <AppBar
   bgcolor="#eeeeee"
   minheight="20px"
-  opacity={1}
 >
   <WithStyles(Grid)
     alignItems="center"

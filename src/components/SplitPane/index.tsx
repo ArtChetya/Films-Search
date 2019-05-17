@@ -1,14 +1,14 @@
 import grey from '@material-ui/core/colors/grey';
 import Grid from '@material-ui/core/Grid';
-import * as React from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 import { AppBar } from '../AppBar';
 
 interface ISplitPaneProps {
-    left?: React.ReactNode;
-    right?: React.ReactNode;
+    left?: ReactNode;
+    right?: ReactNode;
 }
 
-export const SplitPane: React.FunctionComponent<ISplitPaneProps> = ({
+export const SplitPane: FunctionComponent<ISplitPaneProps> = ({
     left,
     right
 }) => {

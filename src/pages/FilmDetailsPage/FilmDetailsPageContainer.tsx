@@ -1,18 +1,33 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { params as paramsAction } from 'features/searchParams';
+import { Loader } from 'components';
 import { fetchFilmDetailsInfo } from 'features/filmDetails';
+import { params as paramsAction } from 'features/searchParams';
 import { serverSideRenderedFlag } from 'features/serverSideRendered';
+import React, { FunctionComponent, useEffect } from 'react';
+import { RouteComponentProps } from 'react-router';
 import { FilmDetailsPage } from '.';
-import { Loader } from '../../components/Loader';
+import {
+    IFilmDetailsPageDispatchProps,
+    IFilmDetailsPageStateProps
+} from './FilmDetailsPageConnector';
 
-export const FilmDetailsPageContainer = ({
+interface IParams {
+    id: string;
+}
+
+interface IFilmDetailsPageContainerProps
+    extends RouteComponentProps<IParams>,
+        IFilmDetailsPageStateProps,
+        IFilmDetailsPageDispatchProps {}
+
+export const FilmDetailsPageContainer: FunctionComponent<
+    IFilmDetailsPageContainerProps
+> & { onInit: (store: any, match: any) => any } = ({
     history,
     match,
     fetchFilmDetailsInfoIfNeeded,
     isFilmDetailsLoading,
     isFilmsLoading,
-    filmDetails,
+    filmDetails = null,
     setParams,
     clearFilmDetails
 }) => {
@@ -32,6 +47,7 @@ export const FilmDetailsPageContainer = ({
 
     useEffect(() => {
         if (!filmDetails) {
+            // tslint:disable-next-line
             return () => {};
         }
 
@@ -67,19 +83,4 @@ FilmDetailsPageContainer.onInit = (store, match) => {
     store.dispatch(serverSideRenderedFlag(true));
 
     return store.dispatch(fetchFilmDetailsInfo(match.params.id));
-};
-
-FilmDetailsPageContainer.propTypes = {
-    history: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired,
-    fetchFilmDetailsInfoIfNeeded: PropTypes.func.isRequired,
-    filmDetails: PropTypes.object,
-    isFilmDetailsLoading: PropTypes.bool.isRequired,
-    isFilmsLoading: PropTypes.bool.isRequired,
-    setParams: PropTypes.func.isRequired,
-    clearFilmDetails: PropTypes.func.isRequired
-};
-
-FilmDetailsPageContainer.defaultProps = {
-    filmDetails: null
 };
